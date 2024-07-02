@@ -1,4 +1,4 @@
-tag_name = '0.0.1-dev4'
+tag_name = '0.0.1-dev5'
 release_tag_name = "breez_liquid-v#{tag_name}"
 
 # We cannot distribute the XCFramework alongside the library directly,
