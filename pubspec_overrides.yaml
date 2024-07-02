@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: breez_liquid
+dependency_overrides:
+  breez_liquid:
+    git:
+			url: git@github.com:breez/breez-liquid-sdk-dart.git
+			ref: 0.0.1-dev2
