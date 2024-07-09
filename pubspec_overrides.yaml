@@ -2,5 +2,5 @@
 dependency_overrides:
   breez_liquid:
     git:
-      url: git@github.com:breez/breez-liquid-sdk-dart.git
+      url: git@github.com:breez/breez-sdk-liquid-dart.git
       ref: 0.1.2-dev5
