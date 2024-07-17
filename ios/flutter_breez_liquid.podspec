@@ -1,4 +1,4 @@
-version = '0.1.3-rc1'
+version = '0.1.3-rc2'
 tag_name = "v#{version}"
 release_tag_name = "breez_liquid-#{tag_name}"
 
