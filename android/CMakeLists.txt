@@ -1,4 +1,4 @@
-set(TagName "v0.2.2-dev14")
+set(TagName "v0.2.2-dev15")
 set(LibraryVersion "breez_liquid-${TagName}")
 
 # Unlike the Windows & Linux CMakeLists.txt, this Android equivalent is just here
