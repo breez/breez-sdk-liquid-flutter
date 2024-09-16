@@ -1,4 +1,4 @@
-set(TagName "v0.3.1-dev3")
+set(TagName "v0.3.1-dev4")
 set(LibraryVersion "breez_liquid-${TagName}")
 
 # Unlike the Windows & Linux CMakeLists.txt, this Android equivalent is just here
@@ -23,7 +23,6 @@ if(NOT EXISTS ${ArchivePath})
 endif()
 
 # Extract the binaries, overriding any already present.
-file(REMOVE_RECURSE ${LibRoot})
 file(MAKE_DIRECTORY ${LibRoot})
 execute_process(
   COMMAND ${CMAKE_COMMAND} -E tar xzf ${ArchivePath}

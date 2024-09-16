@@ -1,7 +1,5 @@
-// The Android Gradle Plugin builds the native code with the Android NDK.
-
+version '0.3.1-dev4'
 group 'com.example.flutter_breez_liquid'
-version '0.3.1-dev3'
 
 buildscript {
     repositories {
@@ -27,7 +25,7 @@ apply plugin: 'com.android.library'
 android {
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
-    compileSdkVersion 31
+    compileSdkVersion 34
 
     // Bumping the plugin ndkVersion requires all clients of this plugin to bump
     // the version in their app and to download a newer version of the NDK.
@@ -54,6 +52,6 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 24
     }
 }
