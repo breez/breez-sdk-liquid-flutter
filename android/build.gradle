@@ -1,4 +1,4 @@
-version '0.5.0-rc8'
+version '0.5.1'
 group 'com.example.flutter_breez_liquid'
 
 buildscript {
