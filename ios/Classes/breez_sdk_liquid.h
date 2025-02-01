@@ -18,16 +18,14 @@ typedef struct _Dart_Handle* Dart_Handle;
 
 #define ESTIMATED_BTC_LOCKUP_TX_VSIZE 154
 
-#define STANDARD_FEE_RATE_SAT_PER_VBYTE 0.1
+#define LIQUID_FEE_RATE_SAT_PER_VBYTE 0.1
 
-#define LOWBALL_FEE_RATE_SAT_PER_VBYTE 0.01
+#define LIQUID_FEE_RATE_MSAT_PER_VBYTE (float)(LIQUID_FEE_RATE_SAT_PER_VBYTE * 1000.0)
 
 /**
  * The minimum acceptable fee rate when claiming using zero-conf
  */
-#define DEFAULT_ZERO_CONF_MIN_FEE_RATE_TESTNET 100
-
-#define DEFAULT_ZERO_CONF_MIN_FEE_RATE_MAINNET 10
+#define DEFAULT_ZERO_CONF_MIN_FEE_RATE 100
 
 /**
  * The maximum acceptable amount in satoshi when claiming using zero-conf
@@ -104,6 +102,7 @@ typedef struct wire_cst_list_payment_state {
 } wire_cst_list_payment_state;
 
 typedef struct wire_cst_ListPaymentDetails_Liquid {
+  struct wire_cst_list_prim_u_8_strict *asset_id;
   struct wire_cst_list_prim_u_8_strict *destination;
 } wire_cst_ListPaymentDetails_Liquid;
 
@@ -129,6 +128,7 @@ typedef struct wire_cst_list_payments_request {
   uint32_t *offset;
   uint32_t *limit;
   struct wire_cst_list_payment_details *details;
+  bool *sort_ascending;
 } wire_cst_list_payments_request;
 
 typedef struct wire_cst_ln_url_auth_request_data {
@@ -142,6 +142,7 @@ typedef struct wire_cst_liquid_address_data {
   struct wire_cst_list_prim_u_8_strict *address;
   int32_t network;
   struct wire_cst_list_prim_u_8_strict *asset_id;
+  double *amount;
   uint64_t *amount_sat;
   struct wire_cst_list_prim_u_8_strict *label;
   struct wire_cst_list_prim_u_8_strict *message;
@@ -347,19 +348,18 @@ typedef struct wire_cst_prepare_buy_bitcoin_request {
   uint64_t amount_sat;
 } wire_cst_prepare_buy_bitcoin_request;
 
-typedef struct wire_cst_prepare_ln_url_pay_request {
-  struct wire_cst_ln_url_pay_request_data data;
-  uint64_t amount_msat;
-  struct wire_cst_list_prim_u_8_strict *comment;
-  bool *validate_success_action_url;
-} wire_cst_prepare_ln_url_pay_request;
+typedef struct wire_cst_PayAmount_Bitcoin {
+  uint64_t receiver_amount_sat;
+} wire_cst_PayAmount_Bitcoin;
 
-typedef struct wire_cst_PayAmount_Receiver {
-  uint64_t amount_sat;
-} wire_cst_PayAmount_Receiver;
+typedef struct wire_cst_PayAmount_Asset {
+  struct wire_cst_list_prim_u_8_strict *asset_id;
+  double receiver_amount;
+} wire_cst_PayAmount_Asset;
 
 typedef union PayAmountKind {
-  struct wire_cst_PayAmount_Receiver Receiver;
+  struct wire_cst_PayAmount_Bitcoin Bitcoin;
+  struct wire_cst_PayAmount_Asset Asset;
 } PayAmountKind;
 
 typedef struct wire_cst_pay_amount {
@@ -367,14 +367,40 @@ typedef struct wire_cst_pay_amount {
   union PayAmountKind kind;
 } wire_cst_pay_amount;
 
+typedef struct wire_cst_prepare_ln_url_pay_request {
+  struct wire_cst_ln_url_pay_request_data data;
+  struct wire_cst_pay_amount amount;
+  struct wire_cst_list_prim_u_8_strict *comment;
+  bool *validate_success_action_url;
+} wire_cst_prepare_ln_url_pay_request;
+
 typedef struct wire_cst_prepare_pay_onchain_request {
   struct wire_cst_pay_amount amount;
   uint32_t *fee_rate_sat_per_vbyte;
 } wire_cst_prepare_pay_onchain_request;
 
+typedef struct wire_cst_ReceiveAmount_Bitcoin {
+  uint64_t payer_amount_sat;
+} wire_cst_ReceiveAmount_Bitcoin;
+
+typedef struct wire_cst_ReceiveAmount_Asset {
+  struct wire_cst_list_prim_u_8_strict *asset_id;
+  double *payer_amount;
+} wire_cst_ReceiveAmount_Asset;
+
+typedef union ReceiveAmountKind {
+  struct wire_cst_ReceiveAmount_Bitcoin Bitcoin;
+  struct wire_cst_ReceiveAmount_Asset Asset;
+} ReceiveAmountKind;
+
+typedef struct wire_cst_receive_amount {
+  int32_t tag;
+  union ReceiveAmountKind kind;
+} wire_cst_receive_amount;
+
 typedef struct wire_cst_prepare_receive_request {
-  uint64_t *payer_amount_sat;
   int32_t payment_method;
+  struct wire_cst_receive_amount *amount;
 } wire_cst_prepare_receive_request;
 
 typedef struct wire_cst_prepare_refund_request {
@@ -390,7 +416,7 @@ typedef struct wire_cst_prepare_send_request {
 
 typedef struct wire_cst_prepare_receive_response {
   int32_t payment_method;
-  uint64_t *payer_amount_sat;
+  struct wire_cst_receive_amount *amount;
   uint64_t fees_sat;
   uint64_t *min_payer_amount_sat;
   uint64_t *max_payer_amount_sat;
@@ -491,22 +517,32 @@ typedef struct wire_cst_PaymentDetails_Lightning {
   struct wire_cst_list_prim_u_8_strict *description;
   uint32_t liquid_expiration_blockheight;
   struct wire_cst_list_prim_u_8_strict *preimage;
-  struct wire_cst_list_prim_u_8_strict *bolt11;
+  struct wire_cst_list_prim_u_8_strict *invoice;
   struct wire_cst_list_prim_u_8_strict *bolt12_offer;
   struct wire_cst_list_prim_u_8_strict *payment_hash;
+  struct wire_cst_list_prim_u_8_strict *destination_pubkey;
   struct wire_cst_ln_url_info *lnurl_info;
   struct wire_cst_list_prim_u_8_strict *refund_tx_id;
   uint64_t *refund_tx_amount_sat;
 } wire_cst_PaymentDetails_Lightning;
 
+typedef struct wire_cst_asset_info {
+  struct wire_cst_list_prim_u_8_strict *name;
+  struct wire_cst_list_prim_u_8_strict *ticker;
+  double amount;
+} wire_cst_asset_info;
+
 typedef struct wire_cst_PaymentDetails_Liquid {
   struct wire_cst_list_prim_u_8_strict *destination;
   struct wire_cst_list_prim_u_8_strict *description;
+  struct wire_cst_list_prim_u_8_strict *asset_id;
+  struct wire_cst_asset_info *asset_info;
 } wire_cst_PaymentDetails_Liquid;
 
 typedef struct wire_cst_PaymentDetails_Bitcoin {
   struct wire_cst_list_prim_u_8_strict *swap_id;
   struct wire_cst_list_prim_u_8_strict *description;
+  bool auto_accepted_fees;
   uint32_t *liquid_expiration_blockheight;
   uint32_t *bitcoin_expiration_blockheight;
   struct wire_cst_list_prim_u_8_strict *refund_tx_id;
@@ -545,6 +581,10 @@ typedef struct wire_cst_SdkEvent_PaymentPending {
   struct wire_cst_payment *details;
 } wire_cst_SdkEvent_PaymentPending;
 
+typedef struct wire_cst_SdkEvent_PaymentRefundable {
+  struct wire_cst_payment *details;
+} wire_cst_SdkEvent_PaymentRefundable;
+
 typedef struct wire_cst_SdkEvent_PaymentRefunded {
   struct wire_cst_payment *details;
 } wire_cst_SdkEvent_PaymentRefunded;
@@ -568,6 +608,7 @@ typedef struct wire_cst_SdkEvent_PaymentWaitingFeeAcceptance {
 typedef union SdkEventKind {
   struct wire_cst_SdkEvent_PaymentFailed PaymentFailed;
   struct wire_cst_SdkEvent_PaymentPending PaymentPending;
+  struct wire_cst_SdkEvent_PaymentRefundable PaymentRefundable;
   struct wire_cst_SdkEvent_PaymentRefunded PaymentRefunded;
   struct wire_cst_SdkEvent_PaymentRefundPending PaymentRefundPending;
   struct wire_cst_SdkEvent_PaymentSucceeded PaymentSucceeded;
@@ -591,6 +632,18 @@ typedef struct wire_cst_list_external_input_parser {
   int32_t len;
 } wire_cst_list_external_input_parser;
 
+typedef struct wire_cst_asset_metadata {
+  struct wire_cst_list_prim_u_8_strict *asset_id;
+  struct wire_cst_list_prim_u_8_strict *name;
+  struct wire_cst_list_prim_u_8_strict *ticker;
+  uint8_t precision;
+} wire_cst_asset_metadata;
+
+typedef struct wire_cst_list_asset_metadata {
+  struct wire_cst_asset_metadata *ptr;
+  int32_t len;
+} wire_cst_list_asset_metadata;
+
 typedef struct wire_cst_config {
   struct wire_cst_list_prim_u_8_strict *liquid_electrum_url;
   struct wire_cst_list_prim_u_8_strict *bitcoin_electrum_url;
@@ -606,6 +659,7 @@ typedef struct wire_cst_config {
   struct wire_cst_list_external_input_parser *external_input_parsers;
   bool use_default_external_input_parsers;
   uint32_t *onchain_fee_rate_leeway_sat_per_vbyte;
+  struct wire_cst_list_asset_metadata *asset_metadata;
 } wire_cst_config;
 
 typedef struct wire_cst_connect_request {
@@ -645,6 +699,19 @@ typedef struct wire_cst_symbol {
   bool *rtl;
   uint32_t *position;
 } wire_cst_symbol;
+
+typedef struct wire_cst_asset_balance {
+  struct wire_cst_list_prim_u_8_strict *asset_id;
+  uint64_t balance_sat;
+  struct wire_cst_list_prim_u_8_strict *name;
+  struct wire_cst_list_prim_u_8_strict *ticker;
+  double *balance;
+} wire_cst_asset_balance;
+
+typedef struct wire_cst_list_asset_balance {
+  struct wire_cst_asset_balance *ptr;
+  int32_t len;
+} wire_cst_list_asset_balance;
 
 typedef struct wire_cst_localized_name {
   struct wire_cst_list_prim_u_8_strict *locale;
@@ -706,6 +773,7 @@ typedef struct wire_cst_refundable_swap {
   struct wire_cst_list_prim_u_8_strict *swap_address;
   uint32_t timestamp;
   uint64_t amount_sat;
+  struct wire_cst_list_prim_u_8_strict *last_refund_tx_id;
 } wire_cst_refundable_swap;
 
 typedef struct wire_cst_list_refundable_swap {
@@ -728,6 +796,7 @@ typedef struct wire_cst_wallet_info {
   uint64_t pending_receive_sat;
   struct wire_cst_list_prim_u_8_strict *fingerprint;
   struct wire_cst_list_prim_u_8_strict *pubkey;
+  struct wire_cst_list_asset_balance *asset_balances;
 } wire_cst_wallet_info;
 
 typedef struct wire_cst_get_info_response {
@@ -1001,6 +1070,10 @@ typedef struct wire_cst_PaymentError_AmountMissing {
   struct wire_cst_list_prim_u_8_strict *err;
 } wire_cst_PaymentError_AmountMissing;
 
+typedef struct wire_cst_PaymentError_AssetError {
+  struct wire_cst_list_prim_u_8_strict *err;
+} wire_cst_PaymentError_AssetError;
+
 typedef struct wire_cst_PaymentError_InvalidNetwork {
   struct wire_cst_list_prim_u_8_strict *err;
 } wire_cst_PaymentError_InvalidNetwork;
@@ -1040,6 +1113,7 @@ typedef struct wire_cst_PaymentError_SignerError {
 
 typedef union PaymentErrorKind {
   struct wire_cst_PaymentError_AmountMissing AmountMissing;
+  struct wire_cst_PaymentError_AssetError AssetError;
   struct wire_cst_PaymentError_InvalidNetwork InvalidNetwork;
   struct wire_cst_PaymentError_Generic Generic;
   struct wire_cst_PaymentError_InvalidDescription InvalidDescription;
@@ -1059,7 +1133,7 @@ typedef struct wire_cst_payment_error {
 typedef struct wire_cst_prepare_refund_response {
   uint32_t tx_vsize;
   uint64_t tx_fee_sat;
-  struct wire_cst_list_prim_u_8_strict *refund_tx_id;
+  struct wire_cst_list_prim_u_8_strict *last_refund_tx_id;
 } wire_cst_prepare_refund_response;
 
 typedef struct wire_cst_receive_payment_response {
@@ -1264,6 +1338,8 @@ struct wire_cst_aes_success_action_data_result *frbgen_breez_liquid_cst_new_box_
 
 struct wire_cst_amount *frbgen_breez_liquid_cst_new_box_autoadd_amount(void);
 
+struct wire_cst_asset_info *frbgen_breez_liquid_cst_new_box_autoadd_asset_info(void);
+
 struct wire_cst_backup_request *frbgen_breez_liquid_cst_new_box_autoadd_backup_request(void);
 
 struct wire_cst_binding_event_listener *frbgen_breez_liquid_cst_new_box_autoadd_binding_event_listener(void);
@@ -1336,6 +1412,8 @@ struct wire_cst_prepare_refund_request *frbgen_breez_liquid_cst_new_box_autoadd_
 
 struct wire_cst_prepare_send_request *frbgen_breez_liquid_cst_new_box_autoadd_prepare_send_request(void);
 
+struct wire_cst_receive_amount *frbgen_breez_liquid_cst_new_box_autoadd_receive_amount(void);
+
 struct wire_cst_receive_payment_request *frbgen_breez_liquid_cst_new_box_autoadd_receive_payment_request(void);
 
 struct wire_cst_refund_request *frbgen_breez_liquid_cst_new_box_autoadd_refund_request(void);
@@ -1361,6 +1439,10 @@ uint64_t *frbgen_breez_liquid_cst_new_box_autoadd_u_64(uint64_t value);
 struct wire_cst_url_success_action_data *frbgen_breez_liquid_cst_new_box_autoadd_url_success_action_data(void);
 
 struct wire_cst_list_String *frbgen_breez_liquid_cst_new_list_String(int32_t len);
+
+struct wire_cst_list_asset_balance *frbgen_breez_liquid_cst_new_list_asset_balance(int32_t len);
+
+struct wire_cst_list_asset_metadata *frbgen_breez_liquid_cst_new_list_asset_metadata(int32_t len);
 
 struct wire_cst_list_external_input_parser *frbgen_breez_liquid_cst_new_list_external_input_parser(int32_t len);
 
@@ -1394,6 +1476,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_aes_success_action_data_decrypted);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_aes_success_action_data_result);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_amount);
+    dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_asset_info);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_backup_request);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_binding_event_listener);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_bitcoin_address_data);
@@ -1430,6 +1513,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_prepare_receive_request);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_prepare_refund_request);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_prepare_send_request);
+    dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_receive_amount);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_receive_payment_request);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_refund_request);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_restore_request);
@@ -1443,6 +1527,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_u_64);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_box_autoadd_url_success_action_data);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_String);
+    dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_asset_balance);
+    dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_asset_metadata);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_external_input_parser);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_fiat_currency);
     dummy_var ^= ((int64_t) (void*) frbgen_breez_liquid_cst_new_list_ln_offer_blinded_path);
