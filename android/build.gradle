@@ -1,4 +1,4 @@
-version '0.7.0-rc2'
+version '0.7.0-rc3'
 group 'technology.breez.flutter_breez_liquid'
 
 buildscript {
