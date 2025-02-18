@@ -23,11 +23,6 @@ typedef struct _Dart_Handle* Dart_Handle;
 #define LIQUID_FEE_RATE_MSAT_PER_VBYTE (float)(LIQUID_FEE_RATE_SAT_PER_VBYTE * 1000.0)
 
 /**
- * The minimum acceptable fee rate when claiming using zero-conf
- */
-#define DEFAULT_ZERO_CONF_MIN_FEE_RATE 100
-
-/**
  * The maximum acceptable amount in satoshi when claiming using zero-conf
  */
 #define DEFAULT_ZERO_CONF_MAX_SAT 1000000
@@ -198,6 +193,7 @@ typedef struct wire_cst_ln_invoice {
 
 typedef struct wire_cst_SendDestination_Bolt11 {
   struct wire_cst_ln_invoice *invoice;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
 } wire_cst_SendDestination_Bolt11;
 
 typedef struct wire_cst_list_String {
@@ -247,6 +243,7 @@ typedef struct wire_cst_ln_offer {
 typedef struct wire_cst_SendDestination_Bolt12 {
   struct wire_cst_ln_offer *offer;
   uint64_t receiver_amount_sat;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
 } wire_cst_SendDestination_Bolt12;
 
 typedef union SendDestinationKind {
@@ -375,6 +372,7 @@ typedef struct wire_cst_pay_amount {
 typedef struct wire_cst_prepare_ln_url_pay_request {
   struct wire_cst_ln_url_pay_request_data data;
   struct wire_cst_pay_amount amount;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
   struct wire_cst_list_prim_u_8_strict *comment;
   bool *validate_success_action_url;
 } wire_cst_prepare_ln_url_pay_request;
@@ -527,6 +525,7 @@ typedef struct wire_cst_PaymentDetails_Lightning {
   struct wire_cst_list_prim_u_8_strict *payment_hash;
   struct wire_cst_list_prim_u_8_strict *destination_pubkey;
   struct wire_cst_ln_url_info *lnurl_info;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
   struct wire_cst_list_prim_u_8_strict *claim_tx_id;
   struct wire_cst_list_prim_u_8_strict *refund_tx_id;
   uint64_t *refund_tx_amount_sat;
@@ -659,7 +658,6 @@ typedef struct wire_cst_config {
   struct wire_cst_list_prim_u_8_strict *cache_dir;
   int32_t network;
   uint64_t payment_timeout_sec;
-  uint32_t zero_conf_min_fee_rate_msat;
   struct wire_cst_list_prim_u_8_strict *sync_service_url;
   uint64_t *zero_conf_max_amount_sat;
   struct wire_cst_list_prim_u_8_strict *breez_api_key;
@@ -826,6 +824,7 @@ typedef struct wire_cst_InputType_Bolt11 {
 
 typedef struct wire_cst_InputType_Bolt12Offer {
   struct wire_cst_ln_offer *offer;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
 } wire_cst_InputType_Bolt12Offer;
 
 typedef struct wire_cst_InputType_NodeId {
@@ -838,6 +837,7 @@ typedef struct wire_cst_InputType_Url {
 
 typedef struct wire_cst_InputType_LnUrlPay {
   struct wire_cst_ln_url_pay_request_data *data;
+  struct wire_cst_list_prim_u_8_strict *bip353_address;
 } wire_cst_InputType_LnUrlPay;
 
 typedef struct wire_cst_InputType_LnUrlWithdraw {
