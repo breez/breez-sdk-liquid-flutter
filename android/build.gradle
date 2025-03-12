@@ -1,4 +1,4 @@
-version '0.7.2-dev1'
+version '0.7.2'
 group 'technology.breez.flutter_breez_liquid'
 
 buildscript {
@@ -51,7 +51,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 24
+        minSdkVersion 33
     }
 }
 
