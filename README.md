@@ -14,7 +14,7 @@
 
 | Android | iOS | MacOS | Web | Linux | Windows |
 | :-----: | :-: | :---: | :-: | :---: | :----: |
-|   ✅    | ❎  |  ❎   | ❎  |  ❎   |   ❎   |
+|   ✅    | ✅  |  ❎   | ❎  |  ❎   |   ❎   |
 
 ## Requirements
 
