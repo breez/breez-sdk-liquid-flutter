@@ -135,6 +135,27 @@ class FlutterBreezLiquidBindings {
       _frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_check_messagePtr
           .asFunction<WireSyncRust2DartDco Function(int, ffi.Pointer<wire_cst_check_message_request>)>();
 
+  void frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoice(
+    int port_,
+    int that,
+    ffi.Pointer<wire_cst_create_bolt_12_invoice_request> req,
+  ) {
+    return _frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoice(
+      port_,
+      that,
+      req,
+    );
+  }
+
+  late final _frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoicePtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.UintPtr, ffi.Pointer<wire_cst_create_bolt_12_invoice_request>)>>(
+      'frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoice');
+  late final _frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoice =
+      _frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_create_bolt12_invoicePtr
+          .asFunction<void Function(int, int, ffi.Pointer<wire_cst_create_bolt_12_invoice_request>)>();
+
   void frbgen_breez_liquid_wire__crate__bindings__BindingLiquidSdk_disconnect(
     int port_,
     int that,
@@ -1009,6 +1030,18 @@ class FlutterBreezLiquidBindings {
       _frbgen_breez_liquid_cst_new_box_autoadd_connect_requestPtr
           .asFunction<ffi.Pointer<wire_cst_connect_request> Function()>();
 
+  ffi.Pointer<wire_cst_create_bolt_12_invoice_request>
+      frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_request() {
+    return _frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_request();
+  }
+
+  late final _frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_requestPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_cst_create_bolt_12_invoice_request> Function()>>(
+          'frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_request');
+  late final _frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_request =
+      _frbgen_breez_liquid_cst_new_box_autoadd_create_bolt_12_invoice_requestPtr
+          .asFunction<ffi.Pointer<wire_cst_create_bolt_12_invoice_request> Function()>();
+
   ffi.Pointer<ffi.Double> frbgen_breez_liquid_cst_new_box_autoadd_f_64(
     double value,
   ) {
@@ -1880,6 +1913,26 @@ class FlutterBreezLiquidBindings {
       'uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_check_message');
   late final _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_check_message =
       _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_check_messagePtr
+          .asFunction<RustBuffer Function(ffi.Pointer<ffi.Void>, RustBuffer, ffi.Pointer<RustCallStatus>)>();
+
+  RustBuffer uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoice(
+    ffi.Pointer<ffi.Void> ptr,
+    RustBuffer req,
+    ffi.Pointer<RustCallStatus> out_status,
+  ) {
+    return _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoice(
+      ptr,
+      req,
+      out_status,
+    );
+  }
+
+  late final _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoicePtr = _lookup<
+          ffi.NativeFunction<
+              RustBuffer Function(ffi.Pointer<ffi.Void>, RustBuffer, ffi.Pointer<RustCallStatus>)>>(
+      'uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoice');
+  late final _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoice =
+      _uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_create_bolt12_invoicePtr
           .asFunction<RustBuffer Function(ffi.Pointer<ffi.Void>, RustBuffer, ffi.Pointer<RustCallStatus>)>();
 
   void uniffi_breez_sdk_liquid_bindings_fn_method_bindingliquidsdk_disconnect(
@@ -3646,6 +3699,17 @@ class FlutterBreezLiquidBindings {
       _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_check_messagePtr
           .asFunction<int Function()>();
 
+  int uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoice() {
+    return _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoice();
+  }
+
+  late final _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoicePtr =
+      _lookup<ffi.NativeFunction<ffi.Uint16 Function()>>(
+          'uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoice');
+  late final _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoice =
+      _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_create_bolt12_invoicePtr
+          .asFunction<int Function()>();
+
   int uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_disconnect() {
     return _uniffi_breez_sdk_liquid_bindings_checksum_method_bindingliquidsdk_disconnect();
   }
@@ -4185,6 +4249,12 @@ final class wire_cst_check_message_request extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> signature;
 }
 
+final class wire_cst_create_bolt_12_invoice_request extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> offer;
+
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> invoice_request;
+}
+
 final class wire_cst_fetch_payment_proposed_fees_request extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> swap_id;
 }
@@ -4480,6 +4550,33 @@ final class wire_cst_ln_url_pay_request_data extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> ln_address;
 }
 
+final class wire_cst_PayAmount_Bitcoin extends ffi.Struct {
+  @ffi.Uint64()
+  external int receiver_amount_sat;
+}
+
+final class wire_cst_PayAmount_Asset extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> asset_id;
+
+  @ffi.Double()
+  external double receiver_amount;
+
+  external ffi.Pointer<ffi.Bool> estimate_asset_fees;
+}
+
+final class PayAmountKind extends ffi.Union {
+  external wire_cst_PayAmount_Bitcoin Bitcoin;
+
+  external wire_cst_PayAmount_Asset Asset;
+}
+
+final class wire_cst_pay_amount extends ffi.Struct {
+  @ffi.Int32()
+  external int tag;
+
+  external PayAmountKind kind;
+}
+
 final class wire_cst_aes_success_action_data extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> description;
 
@@ -4536,6 +4633,8 @@ final class wire_cst_prepare_ln_url_pay_response extends ffi.Struct {
 
   external wire_cst_ln_url_pay_request_data data;
 
+  external wire_cst_pay_amount amount;
+
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> comment;
 
   external ffi.Pointer<wire_cst_success_action> success_action;
@@ -4591,33 +4690,6 @@ final class wire_cst_prepare_buy_bitcoin_request extends ffi.Struct {
 
   @ffi.Uint64()
   external int amount_sat;
-}
-
-final class wire_cst_PayAmount_Bitcoin extends ffi.Struct {
-  @ffi.Uint64()
-  external int receiver_amount_sat;
-}
-
-final class wire_cst_PayAmount_Asset extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> asset_id;
-
-  @ffi.Double()
-  external double receiver_amount;
-
-  external ffi.Pointer<ffi.Bool> estimate_asset_fees;
-}
-
-final class PayAmountKind extends ffi.Union {
-  external wire_cst_PayAmount_Bitcoin Bitcoin;
-
-  external wire_cst_PayAmount_Asset Asset;
-}
-
-final class wire_cst_pay_amount extends ffi.Struct {
-  @ffi.Int32()
-  external int tag;
-
-  external PayAmountKind kind;
 }
 
 final class wire_cst_prepare_ln_url_pay_request extends ffi.Struct {
@@ -4688,10 +4760,10 @@ final class wire_cst_prepare_receive_response extends ffi.Struct {
   @ffi.Int32()
   external int payment_method;
 
-  external ffi.Pointer<wire_cst_receive_amount> amount;
-
   @ffi.Uint64()
   external int fees_sat;
+
+  external ffi.Pointer<wire_cst_receive_amount> amount;
 
   external ffi.Pointer<ffi.Uint64> min_payer_amount_sat;
 
@@ -4723,6 +4795,8 @@ final class wire_cst_restore_request extends ffi.Struct {
 
 final class wire_cst_prepare_send_response extends ffi.Struct {
   external wire_cst_send_destination destination;
+
+  external ffi.Pointer<wire_cst_pay_amount> amount;
 
   external ffi.Pointer<ffi.Uint64> fees_sat;
 
@@ -4878,6 +4952,8 @@ final class wire_cst_PaymentDetails_Bitcoin extends ffi.Struct {
   external ffi.Pointer<ffi.Uint32> liquid_expiration_blockheight;
 
   external ffi.Pointer<ffi.Uint32> bitcoin_expiration_blockheight;
+
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> lockup_tx_id;
 
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> claim_tx_id;
 
@@ -5268,6 +5344,10 @@ final class wire_cst_check_message_response extends ffi.Struct {
   external bool is_valid;
 }
 
+final class wire_cst_create_bolt_12_invoice_response extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> invoice;
+}
+
 final class wire_cst_wallet_info extends ffi.Struct {
   @ffi.Uint64()
   external int balance_sat;
@@ -5427,6 +5507,10 @@ final class wire_cst_LnUrlPayError_Generic extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> err;
 }
 
+final class wire_cst_LnUrlPayError_InsufficientBalance extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> err;
+}
+
 final class wire_cst_LnUrlPayError_InvalidAmount extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> err;
 }
@@ -5469,6 +5553,8 @@ final class wire_cst_LnUrlPayError_ServiceConnectivity extends ffi.Struct {
 
 final class LnUrlPayErrorKind extends ffi.Union {
   external wire_cst_LnUrlPayError_Generic Generic;
+
+  external wire_cst_LnUrlPayError_InsufficientBalance InsufficientBalance;
 
   external wire_cst_LnUrlPayError_InvalidAmount InvalidAmount;
 
@@ -5609,6 +5695,14 @@ final class wire_cst_onchain_payment_limits_response extends ffi.Struct {
   external wire_cst_limits receive;
 }
 
+final class wire_cst_PaymentError_AmountOutOfRange extends ffi.Struct {
+  @ffi.Uint64()
+  external int min;
+
+  @ffi.Uint64()
+  external int max;
+}
+
 final class wire_cst_PaymentError_AmountMissing extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> err;
 }
@@ -5652,6 +5746,8 @@ final class wire_cst_PaymentError_SignerError extends ffi.Struct {
 }
 
 final class PaymentErrorKind extends ffi.Union {
+  external wire_cst_PaymentError_AmountOutOfRange AmountOutOfRange;
+
   external wire_cst_PaymentError_AmountMissing AmountMissing;
 
   external wire_cst_PaymentError_AssetError AssetError;
