@@ -1,4 +1,4 @@
-version = '0.9.2-rc2'
+version = '0.10.0'
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
