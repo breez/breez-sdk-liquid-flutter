@@ -4562,6 +4562,8 @@ final class wire_cst_PayAmount_Asset extends ffi.Struct {
   external double receiver_amount;
 
   external ffi.Pointer<ffi.Bool> estimate_asset_fees;
+
+  external ffi.Pointer<ffi.Bool> pay_with_bitcoin;
 }
 
 final class PayAmountKind extends ffi.Union {
@@ -4803,6 +4805,8 @@ final class wire_cst_prepare_send_response extends ffi.Struct {
   external ffi.Pointer<ffi.Uint64> fees_sat;
 
   external ffi.Pointer<ffi.Double> estimated_asset_fees;
+
+  external ffi.Pointer<ffi.Uint64> exchange_amount_sat;
 }
 
 final class wire_cst_send_payment_request extends ffi.Struct {
@@ -5166,6 +5170,9 @@ final class wire_cst_config extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_asset_metadata> asset_metadata;
 
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> sideswap_api_key;
+
+  @ffi.Bool()
+  external bool use_magic_routing_hints;
 }
 
 final class wire_cst_connect_request extends ffi.Struct {
