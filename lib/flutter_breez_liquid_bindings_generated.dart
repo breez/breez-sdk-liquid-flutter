@@ -4556,14 +4556,14 @@ final class wire_cst_PayAmount_Bitcoin extends ffi.Struct {
 }
 
 final class wire_cst_PayAmount_Asset extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> asset_id;
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> to_asset;
 
   @ffi.Double()
   external double receiver_amount;
 
   external ffi.Pointer<ffi.Bool> estimate_asset_fees;
 
-  external ffi.Pointer<ffi.Bool> pay_with_bitcoin;
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> from_asset;
 }
 
 final class PayAmountKind extends ffi.Union {
@@ -6167,4 +6167,4 @@ const int WEIGHT_VOUT_NESTED = 270;
 
 const int DEFAULT_ZERO_CONF_MAX_SAT = 1000000;
 
-const int CHAIN_SWAP_MONITORING_PERIOD_BITCOIN_BLOCKS = 4320;
+const int CHAIN_SWAP_MONITORING_PERIOD_BITCOIN_BLOCKS = 2016;
