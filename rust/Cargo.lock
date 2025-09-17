@@ -659,7 +659,7 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid"
 version = "0.10.3"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=1c1503cbcabde181cbaf976955afaf4d658ff635#1c1503cbcabde181cbaf976955afaf4d658ff635"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=8aa51b95a1d85748c6a281914180f8016c78000a#8aa51b95a1d85748c6a281914180f8016c78000a"
 dependencies = [
  "anyhow",
  "async-trait",
