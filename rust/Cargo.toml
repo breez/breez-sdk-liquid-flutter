@@ -10,7 +10,7 @@ crate-type = ["cdylib", "staticlib"]
 flutter_rust_bridge = "=2.9.0"
 
 # Replaced with release commit during publishing
-breez-sdk-liquid = { git = "https://github.com/breez/breez-sdk-liquid.git", rev = "4e15e2cc30ad28808ff1733e405c3144e3a7587c"}
+breez-sdk-liquid = { git = "https://github.com/breez/breez-sdk-liquid.git", rev = "7e355394501001107ca3eb89ff4f1f762337dccb"}
 sdk-common = { git = "https://github.com/breez/breez-sdk", rev = "5d96541a4cb03f30b8c4197a619ea52a98bc0bfe", features = ["liquid"] }
 
 anyhow = { version = "1.0.79", features = ["backtrace"] }
