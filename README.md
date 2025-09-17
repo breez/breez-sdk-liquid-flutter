@@ -1,4 +1,4 @@
-# Breez Liquid SDK plugin
+# flutter_breez_liquid
 
 [![pub package](https://img.shields.io/pub/v/breez_sdk_liquid.svg)](https://pub.dev/packages/breez_sdk_liquid)
 
@@ -9,30 +9,30 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Documentation](#documentation)
+- [License](#license)
 
 ## Platform Support
 
 | Android | iOS | MacOS | Web | Linux | Windows |
 | :-----: | :-: | :---: | :-: | :---: | :----: |
-|   ✅    | ❎  |  ❎   | ❎  |  ❎   |   ❎   |
+|   ✅    | ✅  |  ✅   | ❎  |  ✅(Partial)   |   ❎   |
 
 ## Requirements
 
-- Flutter >=3.27.0
-- Dart >=3.6.0 <4.0.0
-- iOS >=13.0
-- MacOS >=15.0
-- Android `compileSDK` 35
-- Java 1.8
-- Android Gradle Plugin >=7.1.2
-- Gradle wrapper >=7.4
+- Flutter >=3.3.0
+- Dart ^3.8.1
+- iOS >=11.0
+- MacOS >=10.11
+- Android `compileSdkVersion` 36
+- Java 17
+- Android Gradle Plugin >=7.3.0
 
 ## Description
 
-This is a Flutter package that wraps the Dart bindings of [Breez Liquid SDK](https://github.com/breez/breez-sdk-liquid?tab=readme-ov-file#readme).
+Flutter bindings for the [Breez SDK - Nodeless (*Liquid Implementation*)](https://sdk-doc-liquid.breez.technology/)
 
 ## Installation
-To use this plugin, add `breez_sdk_liquid` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
+To use this plugin, add `flutter_breez_liquid` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
 
 ## Usage
 
@@ -41,19 +41,23 @@ To start using this package first import it in your Dart file.
 ```dart
 import 'package:flutter_breez_liquid/flutter_breez_liquid.dart';
 ```
-Call `initialize()` to initialize Breez Liquid SDK, preferably on `main.dart`:
+Call `await FlutterBreezLiquid.init();` to initialize Breez SDK - Nodeless (*Liquid Implementation*), preferably on `main.dart`:
 
 ```dart
-import 'package:flutter_breez_liquid/flutter_breez_liquid.dart' as liquid_sdk;
+import 'package:flutter_breez_liquid/flutter_breez_liquid.dart';
 
-void main() async {
-    // Initialize library
-    await liquid_sdk.initialize();
+Future<void> main() async {
+  await FlutterBreezLiquid.init();
+  ...
 }
 ```
 
-Please refer to Dart examples on Breez Liquid SDK documentation for more information on features & capabilities of the Breez Liquid SDK.
+Please refer to Dart examples on our official documentation for more information on features & capabilities of the Breez SDK - Nodeless (*Liquid Implementation*).
 
 ## Documentation
 
-- [Official Breez Liquid SDK documentation](https://sdk-doc-liquid.breez.technology/)
+- [Official Breez SDK - Nodeless (*Liquid Implementation*) documentation](https://sdk-doc-liquid.breez.technology/)
+
+## License
+
+Dual-licensed under Apache 2.0 and MIT.

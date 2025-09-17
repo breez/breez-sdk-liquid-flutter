@@ -1,4 +1,4 @@
-version = '0.11.3-dev1'
+version = '0.10.3' # generated; do not edit
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
@@ -49,8 +49,8 @@ A new Flutter FFI plugin project.
     cd -
   CMD
 
-  s.dependency 'Flutter'
-  s.platform = :ios, '11.0'
+  s.dependency 'FlutterMacOS'
+  s.platform = :osx, '10.11'
   s.swift_version = '5.0'
 
   s.script_phase = {
