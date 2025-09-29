@@ -1,8 +1,14 @@
-version '0.11.3'
-group 'technology.breez.flutter_breez_liquid'
+version '0.11.4'
+group 'com.flutter_rust_bridge.flutter_breez_liquid'
 
 buildscript {
-    ext.kotlin_version = '1.8.20'
+    ext.versions = [
+        'agp': '7.3.0',
+        'kotlin': '1.9.21',
+        'serialization': '1.9.0',
+        'jna': '5.14.0'
+    ]
+    
     repositories {
         google()
         mavenCentral()
@@ -10,8 +16,9 @@ buildscript {
 
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
-        classpath 'com.android.tools.build:gradle:7.1.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:${versions.agp}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:${versions.kotlin}"
     }
 }
 
@@ -25,17 +32,22 @@ rootProject.allprojects {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlinx-serialization'
 
 android {
-    namespace = "technology.breez.flutter_breez_liquid"
-    
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.flutter_rust_bridge.flutter_breez_liquid'
+    }
+
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
-    compileSdkVersion 35
+    compileSdk 36
 
-    // Bumping the plugin ndkVersion requires all clients of this plugin to bump
-    // the version in their app and to download a newer version of the NDK.
-    ndkVersion "21.1.6352462"
+    // Use the NDK version
+    // declared in /android/app/build.gradle file of the Flutter project.
+    // Replace it with a version number if this plugin requires a specfic NDK version.
+    // (e.g. ndkVersion "23.1.7779620")
+    ndkVersion android.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -46,16 +58,31 @@ android {
         jvmTarget = "17"
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    defaultConfig {
+        minSdk 24  // Raised for NSE support
     }
 
-    defaultConfig {
-        minSdkVersion 24
+    sourceSets {
+        main {
+            java.srcDirs = [
+                'src/main/java',
+                'src/main/kotlin',
+                'src/main/kotlin/breez_sdk_liquid_notification'
+            ]
+        }
     }
 }
 
 dependencies {
     api "breez_sdk_liquid:bindings-android:$version"
-    implementation "net.java.dev.jna:jna:5.14.0@aar"
+    implementation "net.java.dev.jna:jna:${versions.jna}@aar"
+    /* JSON serialization */
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.serialization}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+}
+
+apply from: "../cargokit/gradle/plugin.gradle"
+cargokit {
+    manifestDir = "../rust"
+    libname = "flutter_breez_liquid"
 }

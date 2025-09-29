@@ -1,4 +1,4 @@
-version = '0.11.3'
+version = '0.11.4'
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
@@ -8,28 +8,32 @@ url = "https://github.com/breez/breez-sdk-liquid-swift/releases/download/#{versi
 
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint flutter_breez_liquid.podspec` to validate before publishing.
-Pod::Spec.new do |spec|
-  spec.name          = 'flutter_breez_liquid'
-  spec.version       = "#{version}"
-  spec.license       = { :file => '../LICENSE', :type => 'MIT License' }
-  spec.homepage      = 'https://breez.technology'
-  spec.authors       = { 'Breez' => 'contact@breez.technology' }
-  spec.summary       = 'iOS/macOS Flutter bindings for Breez Liquid SDK'
-  spec.documentation_url      = "https://sdk-doc.breez.technology"
+#
+Pod::Spec.new do |s|
+  s.name             = 'flutter_breez_liquid'
+  s.version          = "#{version}"
+  s.summary          = 'iOS/macOS Flutter bindings for Breez SDK Nodeless(Liquid Implementation)'
+  s.homepage         = 'https://breez.technology'
+  s.license          = { :file => '../LICENSE', :type => 'MIT License' }
+  s.author           = { 'Breez' => 'contact@breez.technology' }
 
-  spec.source              = { :path => '.' }
-  spec.source_files        = 'Classes/**/*'
-  spec.public_header_files = 'Classes/**/*.h'
-  spec.on_demand_resources = { 
+  # This will ensure the source files in Classes/ are included in the native
+  # builds of apps using this FFI plugin. Podspec does not support relative
+  # paths, so Classes contains a forwarder C file that relatively imports
+  # `../src/*` so that the C sources can be shared among all target platforms.
+  s.source           = { :path => '.' }
+  s.source_files     = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
+  s.on_demand_resources = { 
     'BreezSDKLiquid' => [
       'Sources/BreezSDKLiquid/*.swift', 
       'Sources/BreezSDKLiquid/**/*.swift'
     ]
   }
 
-  spec.vendored_frameworks = "Frameworks/#{framework_name}"
+  s.vendored_frameworks = "Frameworks/#{framework_name}"
 
-  spec.prepare_command = <<-CMD
+  s.prepare_command = <<-CMD
     cd Frameworks
     rm -rf #{framework_name}
 
@@ -42,15 +46,25 @@ Pod::Spec.new do |spec|
     cd -
   CMD
 
-  spec.ios.deployment_target = '13.0'
-  spec.osx.deployment_target = '15.0'
+  s.dependency 'FlutterMacOS'
+  s.ios.deployment_target = '13.0'
+  s.osx.deployment_target = '15.0'
+  s.swift_version = '5.0'
 
-  spec.dependency 'Flutter'
-  # Flutter.framework does not contain a i386 slice.
-  spec.pod_target_xcconfig = {
-    'STRIP_STYLE' => 'non-global',
-    'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386'
+  s.script_phase = {
+    :name => 'Build Rust library',
+    # First argument is relative path to the `rust` folder, second is name of rust library
+    :script => 'sh "$PODS_TARGET_SRCROOT/../cargokit/build_pod.sh" ../rust flutter_breez_liquid',
+    :execution_position => :before_compile,
+    :input_files => ['${BUILT_PRODUCTS_DIR}/cargokit_phony'],
+    # Let XCode know that the static library referenced in -force_load below is
+    # created by this build step.
+    :output_files => ["${BUILT_PRODUCTS_DIR}/libflutter_breez_liquid.a"],
   }
-  spec.swift_version = '5.0'
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    # Flutter.framework does not contain a i386 slice.
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
+    'OTHER_LDFLAGS' => '-force_load ${BUILT_PRODUCTS_DIR}/libflutter_breez_liquid.a',
+  }
 end
