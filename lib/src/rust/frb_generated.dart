@@ -3254,6 +3254,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
       case 8:
         return SdkEvent_Synced();
       case 9:
+        return SdkEvent_SyncFailed(error: dco_decode_String(raw[1]));
+      case 10:
         return SdkEvent_DataSynced(didPullNewRecords: dco_decode_bool(raw[1]));
       default:
         throw Exception("unreachable");
@@ -5700,6 +5702,9 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
       case 8:
         return SdkEvent_Synced();
       case 9:
+        var var_error = sse_decode_String(deserializer);
+        return SdkEvent_SyncFailed(error: var_error);
+      case 10:
         var var_didPullNewRecords = sse_decode_bool(deserializer);
         return SdkEvent_DataSynced(didPullNewRecords: var_didPullNewRecords);
       default:
@@ -7789,8 +7794,11 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         sse_encode_box_autoadd_payment(details, serializer);
       case SdkEvent_Synced():
         sse_encode_i_32(8, serializer);
-      case SdkEvent_DataSynced(didPullNewRecords: final didPullNewRecords):
+      case SdkEvent_SyncFailed(error: final error):
         sse_encode_i_32(9, serializer);
+        sse_encode_String(error, serializer);
+      case SdkEvent_DataSynced(didPullNewRecords: final didPullNewRecords):
+        sse_encode_i_32(10, serializer);
         sse_encode_bool(didPullNewRecords, serializer);
     }
   }

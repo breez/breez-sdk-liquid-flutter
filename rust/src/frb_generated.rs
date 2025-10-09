@@ -3086,6 +3086,9 @@ const _: fn() = || {
             let _: crate::models::Payment = details;
         }
         crate::events::SdkEvent::Synced => {}
+        crate::events::SdkEvent::SyncFailed { error } => {
+            let _: String = error;
+        }
         crate::events::SdkEvent::DataSynced {
             did_pull_new_records,
         } => {
@@ -5544,6 +5547,10 @@ impl SseDecode for crate::events::SdkEvent {
                 return crate::events::SdkEvent::Synced;
             }
             9 => {
+                let mut var_error = <String>::sse_decode(deserializer);
+                return crate::events::SdkEvent::SyncFailed { error: var_error };
+            }
+            10 => {
                 let mut var_didPullNewRecords = <bool>::sse_decode(deserializer);
                 return crate::events::SdkEvent::DataSynced {
                     did_pull_new_records: var_didPullNewRecords,
@@ -8349,10 +8356,13 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::events::SdkEvent> {
                 [7.into_dart(), details.into_into_dart().into_dart()].into_dart()
             }
             crate::events::SdkEvent::Synced => [8.into_dart()].into_dart(),
+            crate::events::SdkEvent::SyncFailed { error } => {
+                [9.into_dart(), error.into_into_dart().into_dart()].into_dart()
+            }
             crate::events::SdkEvent::DataSynced {
                 did_pull_new_records,
             } => [
-                9.into_dart(),
+                10.into_dart(),
                 did_pull_new_records.into_into_dart().into_dart(),
             ]
             .into_dart(),
@@ -10488,10 +10498,14 @@ impl SseEncode for crate::events::SdkEvent {
             crate::events::SdkEvent::Synced => {
                 <i32>::sse_encode(8, serializer);
             }
+            crate::events::SdkEvent::SyncFailed { error } => {
+                <i32>::sse_encode(9, serializer);
+                <String>::sse_encode(error, serializer);
+            }
             crate::events::SdkEvent::DataSynced {
                 did_pull_new_records,
             } => {
-                <i32>::sse_encode(9, serializer);
+                <i32>::sse_encode(10, serializer);
                 <bool>::sse_encode(did_pull_new_records, serializer);
             }
             _ => {

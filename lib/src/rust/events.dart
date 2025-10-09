@@ -30,6 +30,9 @@ sealed class SdkEvent with _$SdkEvent {
   /// Synced with mempool and onchain data
   const factory SdkEvent.synced() = SdkEvent_Synced;
 
+  /// Failed to sync with mempool and onchain data
+  const factory SdkEvent.syncFailed({required String error}) = SdkEvent_SyncFailed;
+
   /// Synced with real-time data sync
   const factory SdkEvent.dataSynced({
     /// Indicates new data was pulled from other instances.

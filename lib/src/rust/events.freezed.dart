@@ -55,7 +55,7 @@ extension SdkEventPatterns on SdkEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SdkEvent_PaymentFailed value)?  paymentFailed,TResult Function( SdkEvent_PaymentPending value)?  paymentPending,TResult Function( SdkEvent_PaymentRefundable value)?  paymentRefundable,TResult Function( SdkEvent_PaymentRefunded value)?  paymentRefunded,TResult Function( SdkEvent_PaymentRefundPending value)?  paymentRefundPending,TResult Function( SdkEvent_PaymentSucceeded value)?  paymentSucceeded,TResult Function( SdkEvent_PaymentWaitingConfirmation value)?  paymentWaitingConfirmation,TResult Function( SdkEvent_PaymentWaitingFeeAcceptance value)?  paymentWaitingFeeAcceptance,TResult Function( SdkEvent_Synced value)?  synced,TResult Function( SdkEvent_DataSynced value)?  dataSynced,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SdkEvent_PaymentFailed value)?  paymentFailed,TResult Function( SdkEvent_PaymentPending value)?  paymentPending,TResult Function( SdkEvent_PaymentRefundable value)?  paymentRefundable,TResult Function( SdkEvent_PaymentRefunded value)?  paymentRefunded,TResult Function( SdkEvent_PaymentRefundPending value)?  paymentRefundPending,TResult Function( SdkEvent_PaymentSucceeded value)?  paymentSucceeded,TResult Function( SdkEvent_PaymentWaitingConfirmation value)?  paymentWaitingConfirmation,TResult Function( SdkEvent_PaymentWaitingFeeAcceptance value)?  paymentWaitingFeeAcceptance,TResult Function( SdkEvent_Synced value)?  synced,TResult Function( SdkEvent_SyncFailed value)?  syncFailed,TResult Function( SdkEvent_DataSynced value)?  dataSynced,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed() when paymentFailed != null:
@@ -67,7 +67,8 @@ return paymentRefundPending(_that);case SdkEvent_PaymentSucceeded() when payment
 return paymentSucceeded(_that);case SdkEvent_PaymentWaitingConfirmation() when paymentWaitingConfirmation != null:
 return paymentWaitingConfirmation(_that);case SdkEvent_PaymentWaitingFeeAcceptance() when paymentWaitingFeeAcceptance != null:
 return paymentWaitingFeeAcceptance(_that);case SdkEvent_Synced() when synced != null:
-return synced(_that);case SdkEvent_DataSynced() when dataSynced != null:
+return synced(_that);case SdkEvent_SyncFailed() when syncFailed != null:
+return syncFailed(_that);case SdkEvent_DataSynced() when dataSynced != null:
 return dataSynced(_that);case _:
   return orElse();
 
@@ -86,7 +87,7 @@ return dataSynced(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SdkEvent_PaymentFailed value)  paymentFailed,required TResult Function( SdkEvent_PaymentPending value)  paymentPending,required TResult Function( SdkEvent_PaymentRefundable value)  paymentRefundable,required TResult Function( SdkEvent_PaymentRefunded value)  paymentRefunded,required TResult Function( SdkEvent_PaymentRefundPending value)  paymentRefundPending,required TResult Function( SdkEvent_PaymentSucceeded value)  paymentSucceeded,required TResult Function( SdkEvent_PaymentWaitingConfirmation value)  paymentWaitingConfirmation,required TResult Function( SdkEvent_PaymentWaitingFeeAcceptance value)  paymentWaitingFeeAcceptance,required TResult Function( SdkEvent_Synced value)  synced,required TResult Function( SdkEvent_DataSynced value)  dataSynced,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SdkEvent_PaymentFailed value)  paymentFailed,required TResult Function( SdkEvent_PaymentPending value)  paymentPending,required TResult Function( SdkEvent_PaymentRefundable value)  paymentRefundable,required TResult Function( SdkEvent_PaymentRefunded value)  paymentRefunded,required TResult Function( SdkEvent_PaymentRefundPending value)  paymentRefundPending,required TResult Function( SdkEvent_PaymentSucceeded value)  paymentSucceeded,required TResult Function( SdkEvent_PaymentWaitingConfirmation value)  paymentWaitingConfirmation,required TResult Function( SdkEvent_PaymentWaitingFeeAcceptance value)  paymentWaitingFeeAcceptance,required TResult Function( SdkEvent_Synced value)  synced,required TResult Function( SdkEvent_SyncFailed value)  syncFailed,required TResult Function( SdkEvent_DataSynced value)  dataSynced,}){
 final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed():
@@ -98,7 +99,8 @@ return paymentRefundPending(_that);case SdkEvent_PaymentSucceeded():
 return paymentSucceeded(_that);case SdkEvent_PaymentWaitingConfirmation():
 return paymentWaitingConfirmation(_that);case SdkEvent_PaymentWaitingFeeAcceptance():
 return paymentWaitingFeeAcceptance(_that);case SdkEvent_Synced():
-return synced(_that);case SdkEvent_DataSynced():
+return synced(_that);case SdkEvent_SyncFailed():
+return syncFailed(_that);case SdkEvent_DataSynced():
 return dataSynced(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -113,7 +115,7 @@ return dataSynced(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SdkEvent_PaymentFailed value)?  paymentFailed,TResult? Function( SdkEvent_PaymentPending value)?  paymentPending,TResult? Function( SdkEvent_PaymentRefundable value)?  paymentRefundable,TResult? Function( SdkEvent_PaymentRefunded value)?  paymentRefunded,TResult? Function( SdkEvent_PaymentRefundPending value)?  paymentRefundPending,TResult? Function( SdkEvent_PaymentSucceeded value)?  paymentSucceeded,TResult? Function( SdkEvent_PaymentWaitingConfirmation value)?  paymentWaitingConfirmation,TResult? Function( SdkEvent_PaymentWaitingFeeAcceptance value)?  paymentWaitingFeeAcceptance,TResult? Function( SdkEvent_Synced value)?  synced,TResult? Function( SdkEvent_DataSynced value)?  dataSynced,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SdkEvent_PaymentFailed value)?  paymentFailed,TResult? Function( SdkEvent_PaymentPending value)?  paymentPending,TResult? Function( SdkEvent_PaymentRefundable value)?  paymentRefundable,TResult? Function( SdkEvent_PaymentRefunded value)?  paymentRefunded,TResult? Function( SdkEvent_PaymentRefundPending value)?  paymentRefundPending,TResult? Function( SdkEvent_PaymentSucceeded value)?  paymentSucceeded,TResult? Function( SdkEvent_PaymentWaitingConfirmation value)?  paymentWaitingConfirmation,TResult? Function( SdkEvent_PaymentWaitingFeeAcceptance value)?  paymentWaitingFeeAcceptance,TResult? Function( SdkEvent_Synced value)?  synced,TResult? Function( SdkEvent_SyncFailed value)?  syncFailed,TResult? Function( SdkEvent_DataSynced value)?  dataSynced,}){
 final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed() when paymentFailed != null:
@@ -125,7 +127,8 @@ return paymentRefundPending(_that);case SdkEvent_PaymentSucceeded() when payment
 return paymentSucceeded(_that);case SdkEvent_PaymentWaitingConfirmation() when paymentWaitingConfirmation != null:
 return paymentWaitingConfirmation(_that);case SdkEvent_PaymentWaitingFeeAcceptance() when paymentWaitingFeeAcceptance != null:
 return paymentWaitingFeeAcceptance(_that);case SdkEvent_Synced() when synced != null:
-return synced(_that);case SdkEvent_DataSynced() when dataSynced != null:
+return synced(_that);case SdkEvent_SyncFailed() when syncFailed != null:
+return syncFailed(_that);case SdkEvent_DataSynced() when dataSynced != null:
 return dataSynced(_that);case _:
   return null;
 
@@ -143,7 +146,7 @@ return dataSynced(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( Payment details)?  paymentFailed,TResult Function( Payment details)?  paymentPending,TResult Function( Payment details)?  paymentRefundable,TResult Function( Payment details)?  paymentRefunded,TResult Function( Payment details)?  paymentRefundPending,TResult Function( Payment details)?  paymentSucceeded,TResult Function( Payment details)?  paymentWaitingConfirmation,TResult Function( Payment details)?  paymentWaitingFeeAcceptance,TResult Function()?  synced,TResult Function( bool didPullNewRecords)?  dataSynced,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( Payment details)?  paymentFailed,TResult Function( Payment details)?  paymentPending,TResult Function( Payment details)?  paymentRefundable,TResult Function( Payment details)?  paymentRefunded,TResult Function( Payment details)?  paymentRefundPending,TResult Function( Payment details)?  paymentSucceeded,TResult Function( Payment details)?  paymentWaitingConfirmation,TResult Function( Payment details)?  paymentWaitingFeeAcceptance,TResult Function()?  synced,TResult Function( String error)?  syncFailed,TResult Function( bool didPullNewRecords)?  dataSynced,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed() when paymentFailed != null:
 return paymentFailed(_that.details);case SdkEvent_PaymentPending() when paymentPending != null:
@@ -154,7 +157,8 @@ return paymentRefundPending(_that.details);case SdkEvent_PaymentSucceeded() when
 return paymentSucceeded(_that.details);case SdkEvent_PaymentWaitingConfirmation() when paymentWaitingConfirmation != null:
 return paymentWaitingConfirmation(_that.details);case SdkEvent_PaymentWaitingFeeAcceptance() when paymentWaitingFeeAcceptance != null:
 return paymentWaitingFeeAcceptance(_that.details);case SdkEvent_Synced() when synced != null:
-return synced();case SdkEvent_DataSynced() when dataSynced != null:
+return synced();case SdkEvent_SyncFailed() when syncFailed != null:
+return syncFailed(_that.error);case SdkEvent_DataSynced() when dataSynced != null:
 return dataSynced(_that.didPullNewRecords);case _:
   return orElse();
 
@@ -173,7 +177,7 @@ return dataSynced(_that.didPullNewRecords);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( Payment details)  paymentFailed,required TResult Function( Payment details)  paymentPending,required TResult Function( Payment details)  paymentRefundable,required TResult Function( Payment details)  paymentRefunded,required TResult Function( Payment details)  paymentRefundPending,required TResult Function( Payment details)  paymentSucceeded,required TResult Function( Payment details)  paymentWaitingConfirmation,required TResult Function( Payment details)  paymentWaitingFeeAcceptance,required TResult Function()  synced,required TResult Function( bool didPullNewRecords)  dataSynced,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( Payment details)  paymentFailed,required TResult Function( Payment details)  paymentPending,required TResult Function( Payment details)  paymentRefundable,required TResult Function( Payment details)  paymentRefunded,required TResult Function( Payment details)  paymentRefundPending,required TResult Function( Payment details)  paymentSucceeded,required TResult Function( Payment details)  paymentWaitingConfirmation,required TResult Function( Payment details)  paymentWaitingFeeAcceptance,required TResult Function()  synced,required TResult Function( String error)  syncFailed,required TResult Function( bool didPullNewRecords)  dataSynced,}) {final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed():
 return paymentFailed(_that.details);case SdkEvent_PaymentPending():
@@ -184,7 +188,8 @@ return paymentRefundPending(_that.details);case SdkEvent_PaymentSucceeded():
 return paymentSucceeded(_that.details);case SdkEvent_PaymentWaitingConfirmation():
 return paymentWaitingConfirmation(_that.details);case SdkEvent_PaymentWaitingFeeAcceptance():
 return paymentWaitingFeeAcceptance(_that.details);case SdkEvent_Synced():
-return synced();case SdkEvent_DataSynced():
+return synced();case SdkEvent_SyncFailed():
+return syncFailed(_that.error);case SdkEvent_DataSynced():
 return dataSynced(_that.didPullNewRecords);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -199,7 +204,7 @@ return dataSynced(_that.didPullNewRecords);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( Payment details)?  paymentFailed,TResult? Function( Payment details)?  paymentPending,TResult? Function( Payment details)?  paymentRefundable,TResult? Function( Payment details)?  paymentRefunded,TResult? Function( Payment details)?  paymentRefundPending,TResult? Function( Payment details)?  paymentSucceeded,TResult? Function( Payment details)?  paymentWaitingConfirmation,TResult? Function( Payment details)?  paymentWaitingFeeAcceptance,TResult? Function()?  synced,TResult? Function( bool didPullNewRecords)?  dataSynced,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( Payment details)?  paymentFailed,TResult? Function( Payment details)?  paymentPending,TResult? Function( Payment details)?  paymentRefundable,TResult? Function( Payment details)?  paymentRefunded,TResult? Function( Payment details)?  paymentRefundPending,TResult? Function( Payment details)?  paymentSucceeded,TResult? Function( Payment details)?  paymentWaitingConfirmation,TResult? Function( Payment details)?  paymentWaitingFeeAcceptance,TResult? Function()?  synced,TResult? Function( String error)?  syncFailed,TResult? Function( bool didPullNewRecords)?  dataSynced,}) {final _that = this;
 switch (_that) {
 case SdkEvent_PaymentFailed() when paymentFailed != null:
 return paymentFailed(_that.details);case SdkEvent_PaymentPending() when paymentPending != null:
@@ -210,7 +215,8 @@ return paymentRefundPending(_that.details);case SdkEvent_PaymentSucceeded() when
 return paymentSucceeded(_that.details);case SdkEvent_PaymentWaitingConfirmation() when paymentWaitingConfirmation != null:
 return paymentWaitingConfirmation(_that.details);case SdkEvent_PaymentWaitingFeeAcceptance() when paymentWaitingFeeAcceptance != null:
 return paymentWaitingFeeAcceptance(_that.details);case SdkEvent_Synced() when synced != null:
-return synced();case SdkEvent_DataSynced() when dataSynced != null:
+return synced();case SdkEvent_SyncFailed() when syncFailed != null:
+return syncFailed(_that.error);case SdkEvent_DataSynced() when dataSynced != null:
 return dataSynced(_that.didPullNewRecords);case _:
   return null;
 
@@ -778,6 +784,72 @@ String toString() {
 
 
 
+
+/// @nodoc
+
+
+class SdkEvent_SyncFailed extends SdkEvent {
+  const SdkEvent_SyncFailed({required this.error}): super._();
+  
+
+ final  String error;
+
+/// Create a copy of SdkEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SdkEvent_SyncFailedCopyWith<SdkEvent_SyncFailed> get copyWith => _$SdkEvent_SyncFailedCopyWithImpl<SdkEvent_SyncFailed>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SdkEvent_SyncFailed&&(identical(other.error, error) || other.error == error));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString() {
+  return 'SdkEvent.syncFailed(error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SdkEvent_SyncFailedCopyWith<$Res> implements $SdkEventCopyWith<$Res> {
+  factory $SdkEvent_SyncFailedCopyWith(SdkEvent_SyncFailed value, $Res Function(SdkEvent_SyncFailed) _then) = _$SdkEvent_SyncFailedCopyWithImpl;
+@useResult
+$Res call({
+ String error
+});
+
+
+
+
+}
+/// @nodoc
+class _$SdkEvent_SyncFailedCopyWithImpl<$Res>
+    implements $SdkEvent_SyncFailedCopyWith<$Res> {
+  _$SdkEvent_SyncFailedCopyWithImpl(this._self, this._then);
+
+  final SdkEvent_SyncFailed _self;
+  final $Res Function(SdkEvent_SyncFailed) _then;
+
+/// Create a copy of SdkEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(SdkEvent_SyncFailed(
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
