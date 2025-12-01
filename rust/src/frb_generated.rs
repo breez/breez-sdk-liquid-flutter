@@ -2463,6 +2463,8 @@ const _: fn() = || {
         let _: Option<Vec<crate::models::AssetMetadata>> = Config.asset_metadata;
         let _: Option<String> = Config.sideswap_api_key;
         let _: bool = Config.use_magic_routing_hints;
+        let _: u32 = Config.onchain_sync_period_sec;
+        let _: u32 = Config.onchain_sync_request_timeout_sec;
     }
     {
         let ConnectRequest = None::<crate::models::ConnectRequest>.unwrap();
@@ -3524,6 +3526,8 @@ impl SseDecode for crate::models::Config {
             <Option<Vec<crate::models::AssetMetadata>>>::sse_decode(deserializer);
         let mut var_sideswapApiKey = <Option<String>>::sse_decode(deserializer);
         let mut var_useMagicRoutingHints = <bool>::sse_decode(deserializer);
+        let mut var_onchainSyncPeriodSec = <u32>::sse_decode(deserializer);
+        let mut var_onchainSyncRequestTimeoutSec = <u32>::sse_decode(deserializer);
         return crate::models::Config {
             liquid_explorer: var_liquidExplorer,
             bitcoin_explorer: var_bitcoinExplorer,
@@ -3539,6 +3543,8 @@ impl SseDecode for crate::models::Config {
             asset_metadata: var_assetMetadata,
             sideswap_api_key: var_sideswapApiKey,
             use_magic_routing_hints: var_useMagicRoutingHints,
+            onchain_sync_period_sec: var_onchainSyncPeriodSec,
+            onchain_sync_request_timeout_sec: var_onchainSyncRequestTimeoutSec,
         };
     }
 }
@@ -6360,6 +6366,11 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::models::Config> {
             self.0.asset_metadata.into_into_dart().into_dart(),
             self.0.sideswap_api_key.into_into_dart().into_dart(),
             self.0.use_magic_routing_hints.into_into_dart().into_dart(),
+            self.0.onchain_sync_period_sec.into_into_dart().into_dart(),
+            self.0
+                .onchain_sync_request_timeout_sec
+                .into_into_dart()
+                .into_dart(),
         ]
         .into_dart()
     }
@@ -8900,6 +8911,8 @@ impl SseEncode for crate::models::Config {
         <Option<Vec<crate::models::AssetMetadata>>>::sse_encode(self.asset_metadata, serializer);
         <Option<String>>::sse_encode(self.sideswap_api_key, serializer);
         <bool>::sse_encode(self.use_magic_routing_hints, serializer);
+        <u32>::sse_encode(self.onchain_sync_period_sec, serializer);
+        <u32>::sse_encode(self.onchain_sync_request_timeout_sec, serializer);
     }
 }
 

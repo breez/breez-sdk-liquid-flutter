@@ -300,6 +300,8 @@ class Config {
   final List<AssetMetadata>? assetMetadata;
   final String? sideswapApiKey;
   final bool useMagicRoutingHints;
+  final int onchainSyncPeriodSec;
+  final int onchainSyncRequestTimeoutSec;
 
   const Config({
     required this.liquidExplorer,
@@ -316,6 +318,8 @@ class Config {
     this.assetMetadata,
     this.sideswapApiKey,
     required this.useMagicRoutingHints,
+    required this.onchainSyncPeriodSec,
+    required this.onchainSyncRequestTimeoutSec,
   });
 
   @override
@@ -333,7 +337,9 @@ class Config {
       onchainFeeRateLeewaySat.hashCode ^
       assetMetadata.hashCode ^
       sideswapApiKey.hashCode ^
-      useMagicRoutingHints.hashCode;
+      useMagicRoutingHints.hashCode ^
+      onchainSyncPeriodSec.hashCode ^
+      onchainSyncRequestTimeoutSec.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -353,7 +359,9 @@ class Config {
           onchainFeeRateLeewaySat == other.onchainFeeRateLeewaySat &&
           assetMetadata == other.assetMetadata &&
           sideswapApiKey == other.sideswapApiKey &&
-          useMagicRoutingHints == other.useMagicRoutingHints;
+          useMagicRoutingHints == other.useMagicRoutingHints &&
+          onchainSyncPeriodSec == other.onchainSyncPeriodSec &&
+          onchainSyncRequestTimeoutSec == other.onchainSyncRequestTimeoutSec;
 }
 
 class ConnectRequest {

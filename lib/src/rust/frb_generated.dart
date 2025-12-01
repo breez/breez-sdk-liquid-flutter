@@ -1957,7 +1957,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
   Config dco_decode_config(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
-    if (arr.length != 14) throw Exception('unexpected arr length: expect 14 but see ${arr.length}');
+    if (arr.length != 16) throw Exception('unexpected arr length: expect 16 but see ${arr.length}');
     return Config(
       liquidExplorer: dco_decode_blockchain_explorer(arr[0]),
       bitcoinExplorer: dco_decode_blockchain_explorer(arr[1]),
@@ -1973,6 +1973,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
       assetMetadata: dco_decode_opt_list_asset_metadata(arr[11]),
       sideswapApiKey: dco_decode_opt_String(arr[12]),
       useMagicRoutingHints: dco_decode_bool(arr[13]),
+      onchainSyncPeriodSec: dco_decode_u_32(arr[14]),
+      onchainSyncRequestTimeoutSec: dco_decode_u_32(arr[15]),
     );
   }
 
@@ -4037,6 +4039,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
     var var_assetMetadata = sse_decode_opt_list_asset_metadata(deserializer);
     var var_sideswapApiKey = sse_decode_opt_String(deserializer);
     var var_useMagicRoutingHints = sse_decode_bool(deserializer);
+    var var_onchainSyncPeriodSec = sse_decode_u_32(deserializer);
+    var var_onchainSyncRequestTimeoutSec = sse_decode_u_32(deserializer);
     return Config(
       liquidExplorer: var_liquidExplorer,
       bitcoinExplorer: var_bitcoinExplorer,
@@ -4052,6 +4056,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
       assetMetadata: var_assetMetadata,
       sideswapApiKey: var_sideswapApiKey,
       useMagicRoutingHints: var_useMagicRoutingHints,
+      onchainSyncPeriodSec: var_onchainSyncPeriodSec,
+      onchainSyncRequestTimeoutSec: var_onchainSyncRequestTimeoutSec,
     );
   }
 
@@ -6482,6 +6488,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
     sse_encode_opt_list_asset_metadata(self.assetMetadata, serializer);
     sse_encode_opt_String(self.sideswapApiKey, serializer);
     sse_encode_bool(self.useMagicRoutingHints, serializer);
+    sse_encode_u_32(self.onchainSyncPeriodSec, serializer);
+    sse_encode_u_32(self.onchainSyncRequestTimeoutSec, serializer);
   }
 
   @protected
