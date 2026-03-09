@@ -12,6 +12,852 @@ part of 'errors.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
+mixin _$NwcError {
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError()';
+}
+
+
+}
+
+/// @nodoc
+class $NwcErrorCopyWith<$Res>  {
+$NwcErrorCopyWith(NwcError _, $Res Function(NwcError) __);
+}
+
+
+/// Adds pattern-matching-related methods to [NwcError].
+extension NwcErrorPatterns on NwcError {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( NwcError_Persist value)?  persist,TResult Function( NwcError_Generic value)?  generic,TResult Function( NwcError_Network value)?  network,TResult Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult Function( NwcError_InvalidSignature value)?  invalidSignature,TResult Function( NwcError_Encryption value)?  encryption,TResult Function( NwcError_EventExpired value)?  eventExpired,TResult Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult Function( NwcError_ConnectionExists value)?  connectionExists,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case NwcError_Persist() when persist != null:
+return persist(_that);case NwcError_Generic() when generic != null:
+return generic(_that);case NwcError_Network() when network != null:
+return network(_that);case NwcError_PubkeyNotFound() when pubkeyNotFound != null:
+return pubkeyNotFound(_that);case NwcError_InvalidSignature() when invalidSignature != null:
+return invalidSignature(_that);case NwcError_Encryption() when encryption != null:
+return encryption(_that);case NwcError_EventExpired() when eventExpired != null:
+return eventExpired(_that);case NwcError_AlreadyReplied() when alreadyReplied != null:
+return alreadyReplied(_that);case NwcError_InvoiceExpired() when invoiceExpired != null:
+return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount() when invoiceWithoutAmount != null:
+return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
+return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound() when connectionNotFound != null:
+return connectionNotFound(_that);case NwcError_ConnectionExists() when connectionExists != null:
+return connectionExists(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( NwcError_Persist value)  persist,required TResult Function( NwcError_Generic value)  generic,required TResult Function( NwcError_Network value)  network,required TResult Function( NwcError_PubkeyNotFound value)  pubkeyNotFound,required TResult Function( NwcError_InvalidSignature value)  invalidSignature,required TResult Function( NwcError_Encryption value)  encryption,required TResult Function( NwcError_EventExpired value)  eventExpired,required TResult Function( NwcError_AlreadyReplied value)  alreadyReplied,required TResult Function( NwcError_InvoiceExpired value)  invoiceExpired,required TResult Function( NwcError_InvoiceWithoutAmount value)  invoiceWithoutAmount,required TResult Function( NwcError_MaxBudgetExceeded value)  maxBudgetExceeded,required TResult Function( NwcError_ConnectionNotFound value)  connectionNotFound,required TResult Function( NwcError_ConnectionExists value)  connectionExists,}){
+final _that = this;
+switch (_that) {
+case NwcError_Persist():
+return persist(_that);case NwcError_Generic():
+return generic(_that);case NwcError_Network():
+return network(_that);case NwcError_PubkeyNotFound():
+return pubkeyNotFound(_that);case NwcError_InvalidSignature():
+return invalidSignature(_that);case NwcError_Encryption():
+return encryption(_that);case NwcError_EventExpired():
+return eventExpired(_that);case NwcError_AlreadyReplied():
+return alreadyReplied(_that);case NwcError_InvoiceExpired():
+return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount():
+return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded():
+return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound():
+return connectionNotFound(_that);case NwcError_ConnectionExists():
+return connectionExists(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( NwcError_Persist value)?  persist,TResult? Function( NwcError_Generic value)?  generic,TResult? Function( NwcError_Network value)?  network,TResult? Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult? Function( NwcError_InvalidSignature value)?  invalidSignature,TResult? Function( NwcError_Encryption value)?  encryption,TResult? Function( NwcError_EventExpired value)?  eventExpired,TResult? Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult? Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult? Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult? Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult? Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult? Function( NwcError_ConnectionExists value)?  connectionExists,}){
+final _that = this;
+switch (_that) {
+case NwcError_Persist() when persist != null:
+return persist(_that);case NwcError_Generic() when generic != null:
+return generic(_that);case NwcError_Network() when network != null:
+return network(_that);case NwcError_PubkeyNotFound() when pubkeyNotFound != null:
+return pubkeyNotFound(_that);case NwcError_InvalidSignature() when invalidSignature != null:
+return invalidSignature(_that);case NwcError_Encryption() when encryption != null:
+return encryption(_that);case NwcError_EventExpired() when eventExpired != null:
+return eventExpired(_that);case NwcError_AlreadyReplied() when alreadyReplied != null:
+return alreadyReplied(_that);case NwcError_InvoiceExpired() when invoiceExpired != null:
+return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount() when invoiceWithoutAmount != null:
+return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
+return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound() when connectionNotFound != null:
+return connectionNotFound(_that);case NwcError_ConnectionExists() when connectionExists != null:
+return connectionExists(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String err)?  persist,TResult Function( String err)?  generic,TResult Function( String err)?  network,TResult Function( String pubkey)?  pubkeyNotFound,TResult Function( String err)?  invalidSignature,TResult Function( String err)?  encryption,TResult Function()?  eventExpired,TResult Function()?  alreadyReplied,TResult Function()?  invoiceExpired,TResult Function()?  invoiceWithoutAmount,TResult Function()?  maxBudgetExceeded,TResult Function()?  connectionNotFound,TResult Function()?  connectionExists,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case NwcError_Persist() when persist != null:
+return persist(_that.err);case NwcError_Generic() when generic != null:
+return generic(_that.err);case NwcError_Network() when network != null:
+return network(_that.err);case NwcError_PubkeyNotFound() when pubkeyNotFound != null:
+return pubkeyNotFound(_that.pubkey);case NwcError_InvalidSignature() when invalidSignature != null:
+return invalidSignature(_that.err);case NwcError_Encryption() when encryption != null:
+return encryption(_that.err);case NwcError_EventExpired() when eventExpired != null:
+return eventExpired();case NwcError_AlreadyReplied() when alreadyReplied != null:
+return alreadyReplied();case NwcError_InvoiceExpired() when invoiceExpired != null:
+return invoiceExpired();case NwcError_InvoiceWithoutAmount() when invoiceWithoutAmount != null:
+return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
+return maxBudgetExceeded();case NwcError_ConnectionNotFound() when connectionNotFound != null:
+return connectionNotFound();case NwcError_ConnectionExists() when connectionExists != null:
+return connectionExists();case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String err)  persist,required TResult Function( String err)  generic,required TResult Function( String err)  network,required TResult Function( String pubkey)  pubkeyNotFound,required TResult Function( String err)  invalidSignature,required TResult Function( String err)  encryption,required TResult Function()  eventExpired,required TResult Function()  alreadyReplied,required TResult Function()  invoiceExpired,required TResult Function()  invoiceWithoutAmount,required TResult Function()  maxBudgetExceeded,required TResult Function()  connectionNotFound,required TResult Function()  connectionExists,}) {final _that = this;
+switch (_that) {
+case NwcError_Persist():
+return persist(_that.err);case NwcError_Generic():
+return generic(_that.err);case NwcError_Network():
+return network(_that.err);case NwcError_PubkeyNotFound():
+return pubkeyNotFound(_that.pubkey);case NwcError_InvalidSignature():
+return invalidSignature(_that.err);case NwcError_Encryption():
+return encryption(_that.err);case NwcError_EventExpired():
+return eventExpired();case NwcError_AlreadyReplied():
+return alreadyReplied();case NwcError_InvoiceExpired():
+return invoiceExpired();case NwcError_InvoiceWithoutAmount():
+return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded():
+return maxBudgetExceeded();case NwcError_ConnectionNotFound():
+return connectionNotFound();case NwcError_ConnectionExists():
+return connectionExists();}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String err)?  persist,TResult? Function( String err)?  generic,TResult? Function( String err)?  network,TResult? Function( String pubkey)?  pubkeyNotFound,TResult? Function( String err)?  invalidSignature,TResult? Function( String err)?  encryption,TResult? Function()?  eventExpired,TResult? Function()?  alreadyReplied,TResult? Function()?  invoiceExpired,TResult? Function()?  invoiceWithoutAmount,TResult? Function()?  maxBudgetExceeded,TResult? Function()?  connectionNotFound,TResult? Function()?  connectionExists,}) {final _that = this;
+switch (_that) {
+case NwcError_Persist() when persist != null:
+return persist(_that.err);case NwcError_Generic() when generic != null:
+return generic(_that.err);case NwcError_Network() when network != null:
+return network(_that.err);case NwcError_PubkeyNotFound() when pubkeyNotFound != null:
+return pubkeyNotFound(_that.pubkey);case NwcError_InvalidSignature() when invalidSignature != null:
+return invalidSignature(_that.err);case NwcError_Encryption() when encryption != null:
+return encryption(_that.err);case NwcError_EventExpired() when eventExpired != null:
+return eventExpired();case NwcError_AlreadyReplied() when alreadyReplied != null:
+return alreadyReplied();case NwcError_InvoiceExpired() when invoiceExpired != null:
+return invoiceExpired();case NwcError_InvoiceWithoutAmount() when invoiceWithoutAmount != null:
+return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
+return maxBudgetExceeded();case NwcError_ConnectionNotFound() when connectionNotFound != null:
+return connectionNotFound();case NwcError_ConnectionExists() when connectionExists != null:
+return connectionExists();case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class NwcError_Persist extends NwcError {
+  const NwcError_Persist({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_PersistCopyWith<NwcError_Persist> get copyWith => _$NwcError_PersistCopyWithImpl<NwcError_Persist>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_Persist&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'NwcError.persist(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_PersistCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_PersistCopyWith(NwcError_Persist value, $Res Function(NwcError_Persist) _then) = _$NwcError_PersistCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_PersistCopyWithImpl<$Res>
+    implements $NwcError_PersistCopyWith<$Res> {
+  _$NwcError_PersistCopyWithImpl(this._self, this._then);
+
+  final NwcError_Persist _self;
+  final $Res Function(NwcError_Persist) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(NwcError_Persist(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_Generic extends NwcError {
+  const NwcError_Generic({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_GenericCopyWith<NwcError_Generic> get copyWith => _$NwcError_GenericCopyWithImpl<NwcError_Generic>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_Generic&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'NwcError.generic(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_GenericCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_GenericCopyWith(NwcError_Generic value, $Res Function(NwcError_Generic) _then) = _$NwcError_GenericCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_GenericCopyWithImpl<$Res>
+    implements $NwcError_GenericCopyWith<$Res> {
+  _$NwcError_GenericCopyWithImpl(this._self, this._then);
+
+  final NwcError_Generic _self;
+  final $Res Function(NwcError_Generic) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(NwcError_Generic(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_Network extends NwcError {
+  const NwcError_Network({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_NetworkCopyWith<NwcError_Network> get copyWith => _$NwcError_NetworkCopyWithImpl<NwcError_Network>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_Network&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'NwcError.network(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_NetworkCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_NetworkCopyWith(NwcError_Network value, $Res Function(NwcError_Network) _then) = _$NwcError_NetworkCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_NetworkCopyWithImpl<$Res>
+    implements $NwcError_NetworkCopyWith<$Res> {
+  _$NwcError_NetworkCopyWithImpl(this._self, this._then);
+
+  final NwcError_Network _self;
+  final $Res Function(NwcError_Network) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(NwcError_Network(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_PubkeyNotFound extends NwcError {
+  const NwcError_PubkeyNotFound({required this.pubkey}): super._();
+  
+
+ final  String pubkey;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_PubkeyNotFoundCopyWith<NwcError_PubkeyNotFound> get copyWith => _$NwcError_PubkeyNotFoundCopyWithImpl<NwcError_PubkeyNotFound>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_PubkeyNotFound&&(identical(other.pubkey, pubkey) || other.pubkey == pubkey));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,pubkey);
+
+@override
+String toString() {
+  return 'NwcError.pubkeyNotFound(pubkey: $pubkey)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_PubkeyNotFoundCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_PubkeyNotFoundCopyWith(NwcError_PubkeyNotFound value, $Res Function(NwcError_PubkeyNotFound) _then) = _$NwcError_PubkeyNotFoundCopyWithImpl;
+@useResult
+$Res call({
+ String pubkey
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_PubkeyNotFoundCopyWithImpl<$Res>
+    implements $NwcError_PubkeyNotFoundCopyWith<$Res> {
+  _$NwcError_PubkeyNotFoundCopyWithImpl(this._self, this._then);
+
+  final NwcError_PubkeyNotFound _self;
+  final $Res Function(NwcError_PubkeyNotFound) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? pubkey = null,}) {
+  return _then(NwcError_PubkeyNotFound(
+pubkey: null == pubkey ? _self.pubkey : pubkey // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_InvalidSignature extends NwcError {
+  const NwcError_InvalidSignature({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_InvalidSignatureCopyWith<NwcError_InvalidSignature> get copyWith => _$NwcError_InvalidSignatureCopyWithImpl<NwcError_InvalidSignature>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_InvalidSignature&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'NwcError.invalidSignature(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_InvalidSignatureCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_InvalidSignatureCopyWith(NwcError_InvalidSignature value, $Res Function(NwcError_InvalidSignature) _then) = _$NwcError_InvalidSignatureCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_InvalidSignatureCopyWithImpl<$Res>
+    implements $NwcError_InvalidSignatureCopyWith<$Res> {
+  _$NwcError_InvalidSignatureCopyWithImpl(this._self, this._then);
+
+  final NwcError_InvalidSignature _self;
+  final $Res Function(NwcError_InvalidSignature) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(NwcError_InvalidSignature(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_Encryption extends NwcError {
+  const NwcError_Encryption({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NwcError_EncryptionCopyWith<NwcError_Encryption> get copyWith => _$NwcError_EncryptionCopyWithImpl<NwcError_Encryption>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_Encryption&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'NwcError.encryption(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NwcError_EncryptionCopyWith<$Res> implements $NwcErrorCopyWith<$Res> {
+  factory $NwcError_EncryptionCopyWith(NwcError_Encryption value, $Res Function(NwcError_Encryption) _then) = _$NwcError_EncryptionCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$NwcError_EncryptionCopyWithImpl<$Res>
+    implements $NwcError_EncryptionCopyWith<$Res> {
+  _$NwcError_EncryptionCopyWithImpl(this._self, this._then);
+
+  final NwcError_Encryption _self;
+  final $Res Function(NwcError_Encryption) _then;
+
+/// Create a copy of NwcError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(NwcError_Encryption(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class NwcError_EventExpired extends NwcError {
+  const NwcError_EventExpired(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_EventExpired);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.eventExpired()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_AlreadyReplied extends NwcError {
+  const NwcError_AlreadyReplied(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_AlreadyReplied);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.alreadyReplied()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_InvoiceExpired extends NwcError {
+  const NwcError_InvoiceExpired(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_InvoiceExpired);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.invoiceExpired()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_InvoiceWithoutAmount extends NwcError {
+  const NwcError_InvoiceWithoutAmount(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_InvoiceWithoutAmount);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.invoiceWithoutAmount()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_MaxBudgetExceeded extends NwcError {
+  const NwcError_MaxBudgetExceeded(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_MaxBudgetExceeded);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.maxBudgetExceeded()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_ConnectionNotFound extends NwcError {
+  const NwcError_ConnectionNotFound(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_ConnectionNotFound);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.connectionNotFound()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_ConnectionExists extends NwcError {
+  const NwcError_ConnectionExists(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_ConnectionExists);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.connectionExists()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
 mixin _$PaymentError {
 
 
@@ -1336,6 +2182,336 @@ as String,
 }
 
 /// @nodoc
+mixin _$PluginStorageError {
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PluginStorageError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'PluginStorageError()';
+}
+
+
+}
+
+/// @nodoc
+class $PluginStorageErrorCopyWith<$Res>  {
+$PluginStorageErrorCopyWith(PluginStorageError _, $Res Function(PluginStorageError) __);
+}
+
+
+/// Adds pattern-matching-related methods to [PluginStorageError].
+extension PluginStorageErrorPatterns on PluginStorageError {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( PluginStorageError_DataTooOld value)?  dataTooOld,TResult Function( PluginStorageError_Encryption value)?  encryption,TResult Function( PluginStorageError_Generic value)?  generic,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld() when dataTooOld != null:
+return dataTooOld(_that);case PluginStorageError_Encryption() when encryption != null:
+return encryption(_that);case PluginStorageError_Generic() when generic != null:
+return generic(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( PluginStorageError_DataTooOld value)  dataTooOld,required TResult Function( PluginStorageError_Encryption value)  encryption,required TResult Function( PluginStorageError_Generic value)  generic,}){
+final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld():
+return dataTooOld(_that);case PluginStorageError_Encryption():
+return encryption(_that);case PluginStorageError_Generic():
+return generic(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( PluginStorageError_DataTooOld value)?  dataTooOld,TResult? Function( PluginStorageError_Encryption value)?  encryption,TResult? Function( PluginStorageError_Generic value)?  generic,}){
+final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld() when dataTooOld != null:
+return dataTooOld(_that);case PluginStorageError_Encryption() when encryption != null:
+return encryption(_that);case PluginStorageError_Generic() when generic != null:
+return generic(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  dataTooOld,TResult Function( String err)?  encryption,TResult Function( String err)?  generic,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld() when dataTooOld != null:
+return dataTooOld();case PluginStorageError_Encryption() when encryption != null:
+return encryption(_that.err);case PluginStorageError_Generic() when generic != null:
+return generic(_that.err);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  dataTooOld,required TResult Function( String err)  encryption,required TResult Function( String err)  generic,}) {final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld():
+return dataTooOld();case PluginStorageError_Encryption():
+return encryption(_that.err);case PluginStorageError_Generic():
+return generic(_that.err);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  dataTooOld,TResult? Function( String err)?  encryption,TResult? Function( String err)?  generic,}) {final _that = this;
+switch (_that) {
+case PluginStorageError_DataTooOld() when dataTooOld != null:
+return dataTooOld();case PluginStorageError_Encryption() when encryption != null:
+return encryption(_that.err);case PluginStorageError_Generic() when generic != null:
+return generic(_that.err);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class PluginStorageError_DataTooOld extends PluginStorageError {
+  const PluginStorageError_DataTooOld(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PluginStorageError_DataTooOld);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'PluginStorageError.dataTooOld()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class PluginStorageError_Encryption extends PluginStorageError {
+  const PluginStorageError_Encryption({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of PluginStorageError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PluginStorageError_EncryptionCopyWith<PluginStorageError_Encryption> get copyWith => _$PluginStorageError_EncryptionCopyWithImpl<PluginStorageError_Encryption>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PluginStorageError_Encryption&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'PluginStorageError.encryption(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PluginStorageError_EncryptionCopyWith<$Res> implements $PluginStorageErrorCopyWith<$Res> {
+  factory $PluginStorageError_EncryptionCopyWith(PluginStorageError_Encryption value, $Res Function(PluginStorageError_Encryption) _then) = _$PluginStorageError_EncryptionCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$PluginStorageError_EncryptionCopyWithImpl<$Res>
+    implements $PluginStorageError_EncryptionCopyWith<$Res> {
+  _$PluginStorageError_EncryptionCopyWithImpl(this._self, this._then);
+
+  final PluginStorageError_Encryption _self;
+  final $Res Function(PluginStorageError_Encryption) _then;
+
+/// Create a copy of PluginStorageError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(PluginStorageError_Encryption(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class PluginStorageError_Generic extends PluginStorageError {
+  const PluginStorageError_Generic({required this.err}): super._();
+  
+
+ final  String err;
+
+/// Create a copy of PluginStorageError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PluginStorageError_GenericCopyWith<PluginStorageError_Generic> get copyWith => _$PluginStorageError_GenericCopyWithImpl<PluginStorageError_Generic>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PluginStorageError_Generic&&(identical(other.err, err) || other.err == err));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,err);
+
+@override
+String toString() {
+  return 'PluginStorageError.generic(err: $err)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PluginStorageError_GenericCopyWith<$Res> implements $PluginStorageErrorCopyWith<$Res> {
+  factory $PluginStorageError_GenericCopyWith(PluginStorageError_Generic value, $Res Function(PluginStorageError_Generic) _then) = _$PluginStorageError_GenericCopyWithImpl;
+@useResult
+$Res call({
+ String err
+});
+
+
+
+
+}
+/// @nodoc
+class _$PluginStorageError_GenericCopyWithImpl<$Res>
+    implements $PluginStorageError_GenericCopyWith<$Res> {
+  _$PluginStorageError_GenericCopyWithImpl(this._self, this._then);
+
+  final PluginStorageError_Generic _self;
+  final $Res Function(PluginStorageError_Generic) _then;
+
+/// Create a copy of PluginStorageError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
+  return _then(PluginStorageError_Generic(
+err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$SdkError {
 
 
@@ -1379,12 +2555,13 @@ extension SdkErrorPatterns on SdkError {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SdkError_AlreadyStarted value)?  alreadyStarted,TResult Function( SdkError_Generic value)?  generic,TResult Function( SdkError_NotStarted value)?  notStarted,TResult Function( SdkError_ServiceConnectivity value)?  serviceConnectivity,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SdkError_AlreadyStarted value)?  alreadyStarted,TResult Function( SdkError_Generic value)?  generic,TResult Function( SdkError_NetworkNotSupported value)?  networkNotSupported,TResult Function( SdkError_NotStarted value)?  notStarted,TResult Function( SdkError_ServiceConnectivity value)?  serviceConnectivity,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted() when alreadyStarted != null:
 return alreadyStarted(_that);case SdkError_Generic() when generic != null:
-return generic(_that);case SdkError_NotStarted() when notStarted != null:
+return generic(_that);case SdkError_NetworkNotSupported() when networkNotSupported != null:
+return networkNotSupported(_that);case SdkError_NotStarted() when notStarted != null:
 return notStarted(_that);case SdkError_ServiceConnectivity() when serviceConnectivity != null:
 return serviceConnectivity(_that);case _:
   return orElse();
@@ -1404,12 +2581,13 @@ return serviceConnectivity(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SdkError_AlreadyStarted value)  alreadyStarted,required TResult Function( SdkError_Generic value)  generic,required TResult Function( SdkError_NotStarted value)  notStarted,required TResult Function( SdkError_ServiceConnectivity value)  serviceConnectivity,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SdkError_AlreadyStarted value)  alreadyStarted,required TResult Function( SdkError_Generic value)  generic,required TResult Function( SdkError_NetworkNotSupported value)  networkNotSupported,required TResult Function( SdkError_NotStarted value)  notStarted,required TResult Function( SdkError_ServiceConnectivity value)  serviceConnectivity,}){
 final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted():
 return alreadyStarted(_that);case SdkError_Generic():
-return generic(_that);case SdkError_NotStarted():
+return generic(_that);case SdkError_NetworkNotSupported():
+return networkNotSupported(_that);case SdkError_NotStarted():
 return notStarted(_that);case SdkError_ServiceConnectivity():
 return serviceConnectivity(_that);}
 }
@@ -1425,12 +2603,13 @@ return serviceConnectivity(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SdkError_AlreadyStarted value)?  alreadyStarted,TResult? Function( SdkError_Generic value)?  generic,TResult? Function( SdkError_NotStarted value)?  notStarted,TResult? Function( SdkError_ServiceConnectivity value)?  serviceConnectivity,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SdkError_AlreadyStarted value)?  alreadyStarted,TResult? Function( SdkError_Generic value)?  generic,TResult? Function( SdkError_NetworkNotSupported value)?  networkNotSupported,TResult? Function( SdkError_NotStarted value)?  notStarted,TResult? Function( SdkError_ServiceConnectivity value)?  serviceConnectivity,}){
 final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted() when alreadyStarted != null:
 return alreadyStarted(_that);case SdkError_Generic() when generic != null:
-return generic(_that);case SdkError_NotStarted() when notStarted != null:
+return generic(_that);case SdkError_NetworkNotSupported() when networkNotSupported != null:
+return networkNotSupported(_that);case SdkError_NotStarted() when notStarted != null:
 return notStarted(_that);case SdkError_ServiceConnectivity() when serviceConnectivity != null:
 return serviceConnectivity(_that);case _:
   return null;
@@ -1449,11 +2628,12 @@ return serviceConnectivity(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  alreadyStarted,TResult Function( String err)?  generic,TResult Function()?  notStarted,TResult Function( String err)?  serviceConnectivity,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  alreadyStarted,TResult Function( String err)?  generic,TResult Function( String network)?  networkNotSupported,TResult Function()?  notStarted,TResult Function( String err)?  serviceConnectivity,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted() when alreadyStarted != null:
 return alreadyStarted();case SdkError_Generic() when generic != null:
-return generic(_that.err);case SdkError_NotStarted() when notStarted != null:
+return generic(_that.err);case SdkError_NetworkNotSupported() when networkNotSupported != null:
+return networkNotSupported(_that.network);case SdkError_NotStarted() when notStarted != null:
 return notStarted();case SdkError_ServiceConnectivity() when serviceConnectivity != null:
 return serviceConnectivity(_that.err);case _:
   return orElse();
@@ -1473,11 +2653,12 @@ return serviceConnectivity(_that.err);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  alreadyStarted,required TResult Function( String err)  generic,required TResult Function()  notStarted,required TResult Function( String err)  serviceConnectivity,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  alreadyStarted,required TResult Function( String err)  generic,required TResult Function( String network)  networkNotSupported,required TResult Function()  notStarted,required TResult Function( String err)  serviceConnectivity,}) {final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted():
 return alreadyStarted();case SdkError_Generic():
-return generic(_that.err);case SdkError_NotStarted():
+return generic(_that.err);case SdkError_NetworkNotSupported():
+return networkNotSupported(_that.network);case SdkError_NotStarted():
 return notStarted();case SdkError_ServiceConnectivity():
 return serviceConnectivity(_that.err);}
 }
@@ -1493,11 +2674,12 @@ return serviceConnectivity(_that.err);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  alreadyStarted,TResult? Function( String err)?  generic,TResult? Function()?  notStarted,TResult? Function( String err)?  serviceConnectivity,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  alreadyStarted,TResult? Function( String err)?  generic,TResult? Function( String network)?  networkNotSupported,TResult? Function()?  notStarted,TResult? Function( String err)?  serviceConnectivity,}) {final _that = this;
 switch (_that) {
 case SdkError_AlreadyStarted() when alreadyStarted != null:
 return alreadyStarted();case SdkError_Generic() when generic != null:
-return generic(_that.err);case SdkError_NotStarted() when notStarted != null:
+return generic(_that.err);case SdkError_NetworkNotSupported() when networkNotSupported != null:
+return networkNotSupported(_that.network);case SdkError_NotStarted() when notStarted != null:
 return notStarted();case SdkError_ServiceConnectivity() when serviceConnectivity != null:
 return serviceConnectivity(_that.err);case _:
   return null;
@@ -1598,6 +2780,72 @@ class _$SdkError_GenericCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? err = null,}) {
   return _then(SdkError_Generic(
 err: null == err ? _self.err : err // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SdkError_NetworkNotSupported extends SdkError {
+  const SdkError_NetworkNotSupported({required this.network}): super._();
+  
+
+ final  String network;
+
+/// Create a copy of SdkError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SdkError_NetworkNotSupportedCopyWith<SdkError_NetworkNotSupported> get copyWith => _$SdkError_NetworkNotSupportedCopyWithImpl<SdkError_NetworkNotSupported>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SdkError_NetworkNotSupported&&(identical(other.network, network) || other.network == network));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,network);
+
+@override
+String toString() {
+  return 'SdkError.networkNotSupported(network: $network)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SdkError_NetworkNotSupportedCopyWith<$Res> implements $SdkErrorCopyWith<$Res> {
+  factory $SdkError_NetworkNotSupportedCopyWith(SdkError_NetworkNotSupported value, $Res Function(SdkError_NetworkNotSupported) _then) = _$SdkError_NetworkNotSupportedCopyWithImpl;
+@useResult
+$Res call({
+ String network
+});
+
+
+
+
+}
+/// @nodoc
+class _$SdkError_NetworkNotSupportedCopyWithImpl<$Res>
+    implements $SdkError_NetworkNotSupportedCopyWith<$Res> {
+  _$SdkError_NetworkNotSupportedCopyWithImpl(this._self, this._then);
+
+  final SdkError_NetworkNotSupported _self;
+  final $Res Function(SdkError_NetworkNotSupported) _then;
+
+/// Create a copy of SdkError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? network = null,}) {
+  return _then(SdkError_NetworkNotSupported(
+network: null == network ? _self.network : network // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

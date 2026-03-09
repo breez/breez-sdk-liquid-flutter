@@ -1,4 +1,4 @@
-version '0.11.13'
+version '0.12.0'
 group 'com.flutter_rust_bridge.flutter_breez_liquid'
 
 buildscript {

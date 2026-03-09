@@ -1,11 +1,14 @@
 use std::sync::Arc;
 
 use crate::frb_generated::StreamSink;
+use crate::nwc::BreezNwcService;
+use breez_sdk_liquid_nwc::model::NwcConfig;
 use flutter_rust_bridge::frb;
 
 use crate::errors::*;
 use crate::events::BreezEventListener;
 use crate::models::*;
+pub use crate::plugin::*;
 
 pub async fn connect(req: ConnectRequest) -> Result<BreezSdkLiquid, SdkError> {
     let ln_sdk = LiquidSdk::connect(req).await?;
@@ -25,8 +28,9 @@ pub fn parse_invoice(input: String) -> Result<LNInvoice, PaymentError> {
     LiquidSdk::parse_invoice(&input)
 }
 
+#[derive(Clone)]
 pub struct BreezSdkLiquid {
-    pub(crate) sdk: Arc<LiquidSdk>,
+    sdk: Arc<LiquidSdk>,
 }
 
 impl BreezSdkLiquid {
@@ -255,5 +259,11 @@ impl BreezSdkLiquid {
 
     pub async fn disconnect(&self) -> Result<(), SdkError> {
         self.sdk.disconnect().await
+    }
+
+    pub async fn use_nwc_plugin(&self, config: NwcConfig) -> Result<BreezNwcService, SdkError> {
+        let nwc_service = BreezNwcService::new(config);
+        self.sdk.start_plugin(nwc_service.service.clone()).await?;
+        Ok(nwc_service)
     }
 }
