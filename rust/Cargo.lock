@@ -701,65 +701,7 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid"
 version = "0.11.7"
-dependencies = [
- "aes",
- "aes-gcm",
- "anyhow",
- "async-trait",
- "bip39",
- "boltz-client",
- "chrono",
- "console_log",
- "derivative",
- "ecies",
- "electrum-client",
- "env_logger 0.11.8",
- "esplora-client",
- "futures",
- "futures-util",
- "glob",
- "hex",
- "lazy_static",
- "log",
- "lwk_common",
- "lwk_signer",
- "lwk_wollet",
- "mockall",
- "prost 0.11.9",
- "prost 0.13.5",
- "reqwest 0.12.18",
- "rusqlite",
- "rusqlite_migration",
- "sdk-common",
- "sdk-macros",
- "security-framework",
- "security-framework-sys",
- "semver",
- "serde",
- "serde_json",
- "sideswap_api",
- "sqlite-wasm-rs",
- "strum 0.25.0",
- "strum_macros 0.25.3",
- "tempfile",
- "thiserror 1.0.69",
- "tokio",
- "tokio-stream",
- "tokio_with_wasm",
- "tonic 0.12.3",
- "tonic 0.8.3",
- "tonic-build 0.8.4",
- "url",
- "uuid",
- "web-time",
- "x509-parser",
- "zbase32",
-]
-
-[[package]]
-name = "breez-sdk-liquid"
-version = "0.11.7"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=fd74834c8f459f5f84fb1af1e8d9eb42891c3a14#fd74834c8f459f5f84fb1af1e8d9eb42891c3a14"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=9a2aa5c55ac9f36c7ad0811bd488188b30f39c3f#9a2aa5c55ac9f36c7ad0811bd488188b30f39c3f"
 dependencies = [
  "aes",
  "aes-gcm",
@@ -818,10 +760,11 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid-nwc"
 version = "0.0.1"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=9a2aa5c55ac9f36c7ad0811bd488188b30f39c3f#9a2aa5c55ac9f36c7ad0811bd488188b30f39c3f"
 dependencies = [
  "anyhow",
  "async-trait",
- "breez-sdk-liquid 0.11.7",
+ "breez-sdk-liquid",
  "log",
  "nostr-sdk 0.43.0",
  "once_cell",
@@ -1685,7 +1628,7 @@ version = "0.11.7"
 dependencies = [
  "anyhow",
  "async-trait",
- "breez-sdk-liquid 0.11.7 (git+https://github.com/breez/breez-sdk-liquid.git?rev=fd74834c8f459f5f84fb1af1e8d9eb42891c3a14)",
+ "breez-sdk-liquid",
  "breez-sdk-liquid-nwc",
  "flutter_rust_bridge",
  "flutter_rust_bridge_codegen",
