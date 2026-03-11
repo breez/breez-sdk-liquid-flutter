@@ -701,7 +701,7 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid"
 version = "0.11.7"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=fd74834c8f459f5f84fb1af1e8d9eb42891c3a14#fd74834c8f459f5f84fb1af1e8d9eb42891c3a14"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=96a9815bf8e744f8d4c9108741078a48ebd2a596#96a9815bf8e744f8d4c9108741078a48ebd2a596"
 dependencies = [
  "aes",
  "aes-gcm",
@@ -760,7 +760,7 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid-nwc"
 version = "0.0.1"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=fd74834c8f459f5f84fb1af1e8d9eb42891c3a14#fd74834c8f459f5f84fb1af1e8d9eb42891c3a14"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=96a9815bf8e744f8d4c9108741078a48ebd2a596#96a9815bf8e744f8d4c9108741078a48ebd2a596"
 dependencies = [
  "anyhow",
  "async-trait",
