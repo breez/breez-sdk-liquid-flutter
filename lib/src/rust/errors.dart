@@ -25,6 +25,7 @@ sealed class NwcError with _$NwcError implements FrbException {
   const factory NwcError.maxBudgetExceeded() = NwcError_MaxBudgetExceeded;
   const factory NwcError.connectionNotFound() = NwcError_ConnectionNotFound;
   const factory NwcError.connectionExists() = NwcError_ConnectionExists;
+  const factory NwcError.paymentInProgress() = NwcError_PaymentInProgress;
 }
 
 @freezed

@@ -55,7 +55,7 @@ extension NwcErrorPatterns on NwcError {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( NwcError_Persist value)?  persist,TResult Function( NwcError_Generic value)?  generic,TResult Function( NwcError_Network value)?  network,TResult Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult Function( NwcError_InvalidSignature value)?  invalidSignature,TResult Function( NwcError_Encryption value)?  encryption,TResult Function( NwcError_EventExpired value)?  eventExpired,TResult Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult Function( NwcError_ConnectionExists value)?  connectionExists,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( NwcError_Persist value)?  persist,TResult Function( NwcError_Generic value)?  generic,TResult Function( NwcError_Network value)?  network,TResult Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult Function( NwcError_InvalidSignature value)?  invalidSignature,TResult Function( NwcError_Encryption value)?  encryption,TResult Function( NwcError_EventExpired value)?  eventExpired,TResult Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult Function( NwcError_ConnectionExists value)?  connectionExists,TResult Function( NwcError_PaymentInProgress value)?  paymentInProgress,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case NwcError_Persist() when persist != null:
@@ -71,7 +71,8 @@ return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount() when invoiceWi
 return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
 return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound() when connectionNotFound != null:
 return connectionNotFound(_that);case NwcError_ConnectionExists() when connectionExists != null:
-return connectionExists(_that);case _:
+return connectionExists(_that);case NwcError_PaymentInProgress() when paymentInProgress != null:
+return paymentInProgress(_that);case _:
   return orElse();
 
 }
@@ -89,7 +90,7 @@ return connectionExists(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( NwcError_Persist value)  persist,required TResult Function( NwcError_Generic value)  generic,required TResult Function( NwcError_Network value)  network,required TResult Function( NwcError_PubkeyNotFound value)  pubkeyNotFound,required TResult Function( NwcError_InvalidSignature value)  invalidSignature,required TResult Function( NwcError_Encryption value)  encryption,required TResult Function( NwcError_EventExpired value)  eventExpired,required TResult Function( NwcError_AlreadyReplied value)  alreadyReplied,required TResult Function( NwcError_InvoiceExpired value)  invoiceExpired,required TResult Function( NwcError_InvoiceWithoutAmount value)  invoiceWithoutAmount,required TResult Function( NwcError_MaxBudgetExceeded value)  maxBudgetExceeded,required TResult Function( NwcError_ConnectionNotFound value)  connectionNotFound,required TResult Function( NwcError_ConnectionExists value)  connectionExists,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( NwcError_Persist value)  persist,required TResult Function( NwcError_Generic value)  generic,required TResult Function( NwcError_Network value)  network,required TResult Function( NwcError_PubkeyNotFound value)  pubkeyNotFound,required TResult Function( NwcError_InvalidSignature value)  invalidSignature,required TResult Function( NwcError_Encryption value)  encryption,required TResult Function( NwcError_EventExpired value)  eventExpired,required TResult Function( NwcError_AlreadyReplied value)  alreadyReplied,required TResult Function( NwcError_InvoiceExpired value)  invoiceExpired,required TResult Function( NwcError_InvoiceWithoutAmount value)  invoiceWithoutAmount,required TResult Function( NwcError_MaxBudgetExceeded value)  maxBudgetExceeded,required TResult Function( NwcError_ConnectionNotFound value)  connectionNotFound,required TResult Function( NwcError_ConnectionExists value)  connectionExists,required TResult Function( NwcError_PaymentInProgress value)  paymentInProgress,}){
 final _that = this;
 switch (_that) {
 case NwcError_Persist():
@@ -105,7 +106,8 @@ return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount():
 return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded():
 return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound():
 return connectionNotFound(_that);case NwcError_ConnectionExists():
-return connectionExists(_that);}
+return connectionExists(_that);case NwcError_PaymentInProgress():
+return paymentInProgress(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -119,7 +121,7 @@ return connectionExists(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( NwcError_Persist value)?  persist,TResult? Function( NwcError_Generic value)?  generic,TResult? Function( NwcError_Network value)?  network,TResult? Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult? Function( NwcError_InvalidSignature value)?  invalidSignature,TResult? Function( NwcError_Encryption value)?  encryption,TResult? Function( NwcError_EventExpired value)?  eventExpired,TResult? Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult? Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult? Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult? Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult? Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult? Function( NwcError_ConnectionExists value)?  connectionExists,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( NwcError_Persist value)?  persist,TResult? Function( NwcError_Generic value)?  generic,TResult? Function( NwcError_Network value)?  network,TResult? Function( NwcError_PubkeyNotFound value)?  pubkeyNotFound,TResult? Function( NwcError_InvalidSignature value)?  invalidSignature,TResult? Function( NwcError_Encryption value)?  encryption,TResult? Function( NwcError_EventExpired value)?  eventExpired,TResult? Function( NwcError_AlreadyReplied value)?  alreadyReplied,TResult? Function( NwcError_InvoiceExpired value)?  invoiceExpired,TResult? Function( NwcError_InvoiceWithoutAmount value)?  invoiceWithoutAmount,TResult? Function( NwcError_MaxBudgetExceeded value)?  maxBudgetExceeded,TResult? Function( NwcError_ConnectionNotFound value)?  connectionNotFound,TResult? Function( NwcError_ConnectionExists value)?  connectionExists,TResult? Function( NwcError_PaymentInProgress value)?  paymentInProgress,}){
 final _that = this;
 switch (_that) {
 case NwcError_Persist() when persist != null:
@@ -135,7 +137,8 @@ return invoiceExpired(_that);case NwcError_InvoiceWithoutAmount() when invoiceWi
 return invoiceWithoutAmount(_that);case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
 return maxBudgetExceeded(_that);case NwcError_ConnectionNotFound() when connectionNotFound != null:
 return connectionNotFound(_that);case NwcError_ConnectionExists() when connectionExists != null:
-return connectionExists(_that);case _:
+return connectionExists(_that);case NwcError_PaymentInProgress() when paymentInProgress != null:
+return paymentInProgress(_that);case _:
   return null;
 
 }
@@ -152,7 +155,7 @@ return connectionExists(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String err)?  persist,TResult Function( String err)?  generic,TResult Function( String err)?  network,TResult Function( String pubkey)?  pubkeyNotFound,TResult Function( String err)?  invalidSignature,TResult Function( String err)?  encryption,TResult Function()?  eventExpired,TResult Function()?  alreadyReplied,TResult Function()?  invoiceExpired,TResult Function()?  invoiceWithoutAmount,TResult Function()?  maxBudgetExceeded,TResult Function()?  connectionNotFound,TResult Function()?  connectionExists,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String err)?  persist,TResult Function( String err)?  generic,TResult Function( String err)?  network,TResult Function( String pubkey)?  pubkeyNotFound,TResult Function( String err)?  invalidSignature,TResult Function( String err)?  encryption,TResult Function()?  eventExpired,TResult Function()?  alreadyReplied,TResult Function()?  invoiceExpired,TResult Function()?  invoiceWithoutAmount,TResult Function()?  maxBudgetExceeded,TResult Function()?  connectionNotFound,TResult Function()?  connectionExists,TResult Function()?  paymentInProgress,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case NwcError_Persist() when persist != null:
 return persist(_that.err);case NwcError_Generic() when generic != null:
@@ -167,7 +170,8 @@ return invoiceExpired();case NwcError_InvoiceWithoutAmount() when invoiceWithout
 return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
 return maxBudgetExceeded();case NwcError_ConnectionNotFound() when connectionNotFound != null:
 return connectionNotFound();case NwcError_ConnectionExists() when connectionExists != null:
-return connectionExists();case _:
+return connectionExists();case NwcError_PaymentInProgress() when paymentInProgress != null:
+return paymentInProgress();case _:
   return orElse();
 
 }
@@ -185,7 +189,7 @@ return connectionExists();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String err)  persist,required TResult Function( String err)  generic,required TResult Function( String err)  network,required TResult Function( String pubkey)  pubkeyNotFound,required TResult Function( String err)  invalidSignature,required TResult Function( String err)  encryption,required TResult Function()  eventExpired,required TResult Function()  alreadyReplied,required TResult Function()  invoiceExpired,required TResult Function()  invoiceWithoutAmount,required TResult Function()  maxBudgetExceeded,required TResult Function()  connectionNotFound,required TResult Function()  connectionExists,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String err)  persist,required TResult Function( String err)  generic,required TResult Function( String err)  network,required TResult Function( String pubkey)  pubkeyNotFound,required TResult Function( String err)  invalidSignature,required TResult Function( String err)  encryption,required TResult Function()  eventExpired,required TResult Function()  alreadyReplied,required TResult Function()  invoiceExpired,required TResult Function()  invoiceWithoutAmount,required TResult Function()  maxBudgetExceeded,required TResult Function()  connectionNotFound,required TResult Function()  connectionExists,required TResult Function()  paymentInProgress,}) {final _that = this;
 switch (_that) {
 case NwcError_Persist():
 return persist(_that.err);case NwcError_Generic():
@@ -200,7 +204,8 @@ return invoiceExpired();case NwcError_InvoiceWithoutAmount():
 return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded():
 return maxBudgetExceeded();case NwcError_ConnectionNotFound():
 return connectionNotFound();case NwcError_ConnectionExists():
-return connectionExists();}
+return connectionExists();case NwcError_PaymentInProgress():
+return paymentInProgress();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -214,7 +219,7 @@ return connectionExists();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String err)?  persist,TResult? Function( String err)?  generic,TResult? Function( String err)?  network,TResult? Function( String pubkey)?  pubkeyNotFound,TResult? Function( String err)?  invalidSignature,TResult? Function( String err)?  encryption,TResult? Function()?  eventExpired,TResult? Function()?  alreadyReplied,TResult? Function()?  invoiceExpired,TResult? Function()?  invoiceWithoutAmount,TResult? Function()?  maxBudgetExceeded,TResult? Function()?  connectionNotFound,TResult? Function()?  connectionExists,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String err)?  persist,TResult? Function( String err)?  generic,TResult? Function( String err)?  network,TResult? Function( String pubkey)?  pubkeyNotFound,TResult? Function( String err)?  invalidSignature,TResult? Function( String err)?  encryption,TResult? Function()?  eventExpired,TResult? Function()?  alreadyReplied,TResult? Function()?  invoiceExpired,TResult? Function()?  invoiceWithoutAmount,TResult? Function()?  maxBudgetExceeded,TResult? Function()?  connectionNotFound,TResult? Function()?  connectionExists,TResult? Function()?  paymentInProgress,}) {final _that = this;
 switch (_that) {
 case NwcError_Persist() when persist != null:
 return persist(_that.err);case NwcError_Generic() when generic != null:
@@ -229,7 +234,8 @@ return invoiceExpired();case NwcError_InvoiceWithoutAmount() when invoiceWithout
 return invoiceWithoutAmount();case NwcError_MaxBudgetExceeded() when maxBudgetExceeded != null:
 return maxBudgetExceeded();case NwcError_ConnectionNotFound() when connectionNotFound != null:
 return connectionNotFound();case NwcError_ConnectionExists() when connectionExists != null:
-return connectionExists();case _:
+return connectionExists();case NwcError_PaymentInProgress() when paymentInProgress != null:
+return paymentInProgress();case _:
   return null;
 
 }
@@ -849,6 +855,38 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'NwcError.connectionExists()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class NwcError_PaymentInProgress extends NwcError {
+  const NwcError_PaymentInProgress(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NwcError_PaymentInProgress);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'NwcError.paymentInProgress()';
 }
 
 

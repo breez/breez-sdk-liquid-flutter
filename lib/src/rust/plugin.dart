@@ -28,6 +28,8 @@ abstract class PluginSdk implements RustOpaqueInterface {
   Future<ReceivePaymentResponse> receivePayment({required ReceivePaymentRequest req});
 
   Future<SendPaymentResponse> sendPayment({required SendPaymentRequest req});
+
+  Future<void> sync_();
 }
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<PluginStorage>>

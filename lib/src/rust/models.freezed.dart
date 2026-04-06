@@ -3552,10 +3552,10 @@ return bitcoin(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  lightning,TResult Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)?  liquid,TResult Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  bitcoin,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat,  int? settledAt)?  lightning,TResult Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)?  liquid,TResult Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  bitcoin,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case PaymentDetails_Lightning() when lightning != null:
-return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);case PaymentDetails_Liquid() when liquid != null:
+return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat,_that.settledAt);case PaymentDetails_Liquid() when liquid != null:
 return liquid(_that.destination,_that.description,_that.assetId,_that.assetInfo,_that.lnurlInfo,_that.bip353Address,_that.payerNote);case PaymentDetails_Bitcoin() when bitcoin != null:
 return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcceptedFees,_that.liquidExpirationBlockheight,_that.bitcoinExpirationBlockheight,_that.lockupTxId,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);case _:
   return orElse();
@@ -3575,10 +3575,10 @@ return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcc
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)  lightning,required TResult Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)  liquid,required TResult Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)  bitcoin,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat,  int? settledAt)  lightning,required TResult Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)  liquid,required TResult Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)  bitcoin,}) {final _that = this;
 switch (_that) {
 case PaymentDetails_Lightning():
-return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);case PaymentDetails_Liquid():
+return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat,_that.settledAt);case PaymentDetails_Liquid():
 return liquid(_that.destination,_that.description,_that.assetId,_that.assetInfo,_that.lnurlInfo,_that.bip353Address,_that.payerNote);case PaymentDetails_Bitcoin():
 return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcceptedFees,_that.liquidExpirationBlockheight,_that.bitcoinExpirationBlockheight,_that.lockupTxId,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);}
 }
@@ -3594,10 +3594,10 @@ return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcc
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  lightning,TResult? Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)?  liquid,TResult? Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  bitcoin,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String swapId,  String description,  int liquidExpirationBlockheight,  String? preimage,  String? invoice,  String? bolt12Offer,  String? paymentHash,  String? destinationPubkey,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat,  int? settledAt)?  lightning,TResult? Function( String destination,  String description,  String assetId,  AssetInfo? assetInfo,  LnUrlInfo? lnurlInfo,  String? bip353Address,  String? payerNote)?  liquid,TResult? Function( String swapId,  String bitcoinAddress,  String description,  bool autoAcceptedFees,  int liquidExpirationBlockheight,  int bitcoinExpirationBlockheight,  String? lockupTxId,  String? claimTxId,  String? refundTxId,  BigInt? refundTxAmountSat)?  bitcoin,}) {final _that = this;
 switch (_that) {
 case PaymentDetails_Lightning() when lightning != null:
-return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);case PaymentDetails_Liquid() when liquid != null:
+return lightning(_that.swapId,_that.description,_that.liquidExpirationBlockheight,_that.preimage,_that.invoice,_that.bolt12Offer,_that.paymentHash,_that.destinationPubkey,_that.lnurlInfo,_that.bip353Address,_that.payerNote,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat,_that.settledAt);case PaymentDetails_Liquid() when liquid != null:
 return liquid(_that.destination,_that.description,_that.assetId,_that.assetInfo,_that.lnurlInfo,_that.bip353Address,_that.payerNote);case PaymentDetails_Bitcoin() when bitcoin != null:
 return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcceptedFees,_that.liquidExpirationBlockheight,_that.bitcoinExpirationBlockheight,_that.lockupTxId,_that.claimTxId,_that.refundTxId,_that.refundTxAmountSat);case _:
   return null;
@@ -3611,7 +3611,7 @@ return bitcoin(_that.swapId,_that.bitcoinAddress,_that.description,_that.autoAcc
 
 
 class PaymentDetails_Lightning extends PaymentDetails {
-  const PaymentDetails_Lightning({required this.swapId, required this.description, required this.liquidExpirationBlockheight, this.preimage, this.invoice, this.bolt12Offer, this.paymentHash, this.destinationPubkey, this.lnurlInfo, this.bip353Address, this.payerNote, this.claimTxId, this.refundTxId, this.refundTxAmountSat}): super._();
+  const PaymentDetails_Lightning({required this.swapId, required this.description, required this.liquidExpirationBlockheight, this.preimage, this.invoice, this.bolt12Offer, this.paymentHash, this.destinationPubkey, this.lnurlInfo, this.bip353Address, this.payerNote, this.claimTxId, this.refundTxId, this.refundTxAmountSat, this.settledAt}): super._();
   
 
  final  String swapId;
@@ -3628,6 +3628,7 @@ class PaymentDetails_Lightning extends PaymentDetails {
  final  String? claimTxId;
  final  String? refundTxId;
  final  BigInt? refundTxAmountSat;
+ final  int? settledAt;
 
 /// Create a copy of PaymentDetails
 /// with the given fields replaced by the non-null parameter values.
@@ -3639,16 +3640,16 @@ $PaymentDetails_LightningCopyWith<PaymentDetails_Lightning> get copyWith => _$Pa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PaymentDetails_Lightning&&(identical(other.swapId, swapId) || other.swapId == swapId)&&(identical(other.description, description) || other.description == description)&&(identical(other.liquidExpirationBlockheight, liquidExpirationBlockheight) || other.liquidExpirationBlockheight == liquidExpirationBlockheight)&&(identical(other.preimage, preimage) || other.preimage == preimage)&&(identical(other.invoice, invoice) || other.invoice == invoice)&&(identical(other.bolt12Offer, bolt12Offer) || other.bolt12Offer == bolt12Offer)&&(identical(other.paymentHash, paymentHash) || other.paymentHash == paymentHash)&&(identical(other.destinationPubkey, destinationPubkey) || other.destinationPubkey == destinationPubkey)&&(identical(other.lnurlInfo, lnurlInfo) || other.lnurlInfo == lnurlInfo)&&(identical(other.bip353Address, bip353Address) || other.bip353Address == bip353Address)&&(identical(other.payerNote, payerNote) || other.payerNote == payerNote)&&(identical(other.claimTxId, claimTxId) || other.claimTxId == claimTxId)&&(identical(other.refundTxId, refundTxId) || other.refundTxId == refundTxId)&&(identical(other.refundTxAmountSat, refundTxAmountSat) || other.refundTxAmountSat == refundTxAmountSat));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PaymentDetails_Lightning&&(identical(other.swapId, swapId) || other.swapId == swapId)&&(identical(other.description, description) || other.description == description)&&(identical(other.liquidExpirationBlockheight, liquidExpirationBlockheight) || other.liquidExpirationBlockheight == liquidExpirationBlockheight)&&(identical(other.preimage, preimage) || other.preimage == preimage)&&(identical(other.invoice, invoice) || other.invoice == invoice)&&(identical(other.bolt12Offer, bolt12Offer) || other.bolt12Offer == bolt12Offer)&&(identical(other.paymentHash, paymentHash) || other.paymentHash == paymentHash)&&(identical(other.destinationPubkey, destinationPubkey) || other.destinationPubkey == destinationPubkey)&&(identical(other.lnurlInfo, lnurlInfo) || other.lnurlInfo == lnurlInfo)&&(identical(other.bip353Address, bip353Address) || other.bip353Address == bip353Address)&&(identical(other.payerNote, payerNote) || other.payerNote == payerNote)&&(identical(other.claimTxId, claimTxId) || other.claimTxId == claimTxId)&&(identical(other.refundTxId, refundTxId) || other.refundTxId == refundTxId)&&(identical(other.refundTxAmountSat, refundTxAmountSat) || other.refundTxAmountSat == refundTxAmountSat)&&(identical(other.settledAt, settledAt) || other.settledAt == settledAt));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,swapId,description,liquidExpirationBlockheight,preimage,invoice,bolt12Offer,paymentHash,destinationPubkey,lnurlInfo,bip353Address,payerNote,claimTxId,refundTxId,refundTxAmountSat);
+int get hashCode => Object.hash(runtimeType,swapId,description,liquidExpirationBlockheight,preimage,invoice,bolt12Offer,paymentHash,destinationPubkey,lnurlInfo,bip353Address,payerNote,claimTxId,refundTxId,refundTxAmountSat,settledAt);
 
 @override
 String toString() {
-  return 'PaymentDetails.lightning(swapId: $swapId, description: $description, liquidExpirationBlockheight: $liquidExpirationBlockheight, preimage: $preimage, invoice: $invoice, bolt12Offer: $bolt12Offer, paymentHash: $paymentHash, destinationPubkey: $destinationPubkey, lnurlInfo: $lnurlInfo, bip353Address: $bip353Address, payerNote: $payerNote, claimTxId: $claimTxId, refundTxId: $refundTxId, refundTxAmountSat: $refundTxAmountSat)';
+  return 'PaymentDetails.lightning(swapId: $swapId, description: $description, liquidExpirationBlockheight: $liquidExpirationBlockheight, preimage: $preimage, invoice: $invoice, bolt12Offer: $bolt12Offer, paymentHash: $paymentHash, destinationPubkey: $destinationPubkey, lnurlInfo: $lnurlInfo, bip353Address: $bip353Address, payerNote: $payerNote, claimTxId: $claimTxId, refundTxId: $refundTxId, refundTxAmountSat: $refundTxAmountSat, settledAt: $settledAt)';
 }
 
 
@@ -3659,7 +3660,7 @@ abstract mixin class $PaymentDetails_LightningCopyWith<$Res> implements $Payment
   factory $PaymentDetails_LightningCopyWith(PaymentDetails_Lightning value, $Res Function(PaymentDetails_Lightning) _then) = _$PaymentDetails_LightningCopyWithImpl;
 @override @useResult
 $Res call({
- String swapId, String description, int liquidExpirationBlockheight, String? preimage, String? invoice, String? bolt12Offer, String? paymentHash, String? destinationPubkey, LnUrlInfo? lnurlInfo, String? bip353Address, String? payerNote, String? claimTxId, String? refundTxId, BigInt? refundTxAmountSat
+ String swapId, String description, int liquidExpirationBlockheight, String? preimage, String? invoice, String? bolt12Offer, String? paymentHash, String? destinationPubkey, LnUrlInfo? lnurlInfo, String? bip353Address, String? payerNote, String? claimTxId, String? refundTxId, BigInt? refundTxAmountSat, int? settledAt
 });
 
 
@@ -3676,7 +3677,7 @@ class _$PaymentDetails_LightningCopyWithImpl<$Res>
 
 /// Create a copy of PaymentDetails
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? swapId = null,Object? description = null,Object? liquidExpirationBlockheight = null,Object? preimage = freezed,Object? invoice = freezed,Object? bolt12Offer = freezed,Object? paymentHash = freezed,Object? destinationPubkey = freezed,Object? lnurlInfo = freezed,Object? bip353Address = freezed,Object? payerNote = freezed,Object? claimTxId = freezed,Object? refundTxId = freezed,Object? refundTxAmountSat = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? swapId = null,Object? description = null,Object? liquidExpirationBlockheight = null,Object? preimage = freezed,Object? invoice = freezed,Object? bolt12Offer = freezed,Object? paymentHash = freezed,Object? destinationPubkey = freezed,Object? lnurlInfo = freezed,Object? bip353Address = freezed,Object? payerNote = freezed,Object? claimTxId = freezed,Object? refundTxId = freezed,Object? refundTxAmountSat = freezed,Object? settledAt = freezed,}) {
   return _then(PaymentDetails_Lightning(
 swapId: null == swapId ? _self.swapId : swapId // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -3692,7 +3693,8 @@ as String?,payerNote: freezed == payerNote ? _self.payerNote : payerNote // igno
 as String?,claimTxId: freezed == claimTxId ? _self.claimTxId : claimTxId // ignore: cast_nullable_to_non_nullable
 as String?,refundTxId: freezed == refundTxId ? _self.refundTxId : refundTxId // ignore: cast_nullable_to_non_nullable
 as String?,refundTxAmountSat: freezed == refundTxAmountSat ? _self.refundTxAmountSat : refundTxAmountSat // ignore: cast_nullable_to_non_nullable
-as BigInt?,
+as BigInt?,settledAt: freezed == settledAt ? _self.settledAt : settledAt // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

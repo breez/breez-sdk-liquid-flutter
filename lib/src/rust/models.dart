@@ -1314,6 +1314,7 @@ sealed class PaymentDetails with _$PaymentDetails {
     String? claimTxId,
     String? refundTxId,
     BigInt? refundTxAmountSat,
+    int? settledAt,
   }) = PaymentDetails_Lightning;
   const factory PaymentDetails.liquid({
     required String destination,

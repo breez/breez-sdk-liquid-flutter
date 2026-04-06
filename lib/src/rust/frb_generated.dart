@@ -71,7 +71,7 @@ class FlutterBreezLiquid
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 677657473;
+  int get rustContentHash => -1299239191;
 
   static const kDefaultExternalLibraryLoaderConfig = ExternalLibraryLoaderConfig(
     stem: 'flutter_breez_liquid',
@@ -307,6 +307,8 @@ abstract class FlutterBreezLiquidApi extends BaseApi {
     required PluginSdk that,
     required SendPaymentRequest req,
   });
+
+  Future<void> cratePluginPluginSdkSync({required PluginSdk that});
 
   String? cratePluginPluginStorageGetItem({required PluginStorage that, required String key});
 
@@ -2056,6 +2058,29 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
       const TaskConstMeta(debugName: "PluginSdk_send_payment", argNames: ["that", "req"]);
 
   @override
+  Future<void> cratePluginPluginSdkSync({required PluginSdk that}) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPluginSdk(
+            that,
+            serializer,
+          );
+          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 62, port: port_);
+        },
+        codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: sse_decode_sdk_error),
+        constMeta: kCratePluginPluginSdkSyncConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCratePluginPluginSdkSyncConstMeta =>
+      const TaskConstMeta(debugName: "PluginSdk_sync", argNames: ["that"]);
+
+  @override
   String? cratePluginPluginStorageGetItem({required PluginStorage that, required String key}) {
     return handler.executeSync(
       SyncTask(
@@ -2066,7 +2091,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
             serializer,
           );
           sse_encode_String(key, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 62)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 63)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_opt_String,
@@ -2093,7 +2118,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
             serializer,
           );
           sse_encode_String(key, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 63)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 64)!;
         },
         codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: sse_decode_plugin_storage_error),
         constMeta: kCratePluginPluginStorageRemoveItemConstMeta,
@@ -2124,7 +2149,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           sse_encode_String(key, serializer);
           sse_encode_String(value, serializer);
           sse_encode_opt_String(oldValue, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 64)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 65)!;
         },
         codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: sse_decode_plugin_storage_error),
         constMeta: kCratePluginPluginStorageSetItemConstMeta,
@@ -2147,7 +2172,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_box_autoadd_breez_event_listener(that, serializer);
           sse_encode_box_autoadd_sdk_event(e, serializer);
-          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 70, port: port_);
+          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 71, port: port_);
         },
         codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: null),
         constMeta: kCrateEventsBreezEventListenerOnEventConstMeta,
@@ -2169,7 +2194,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           callFfi: (port_) {
             final serializer = SseSerializer(generalizedFrbRustBinding);
             sse_encode_StreamSink_log_entry_Sse(s, serializer);
-            pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 71, port: port_);
+            pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 72, port: port_);
           },
           codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: sse_decode_AnyhowException),
           constMeta: kCrateLoggerBreezLogStreamConstMeta,
@@ -2195,7 +2220,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_box_autoadd_breez_nwc_event_listener(that, serializer);
           sse_encode_box_autoadd_nwc_event(e, serializer);
-          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 72, port: port_);
+          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 73, port: port_);
         },
         codec: SseCodec(decodeSuccessData: sse_decode_unit, decodeErrorData: null),
         constMeta: kCrateNwcEventBreezNwcEventListenerOnEventConstMeta,
@@ -2215,7 +2240,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         callFfi: (port_) {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_box_autoadd_connect_request(req, serializer);
-          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 73, port: port_);
+          pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 74, port: port_);
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -2239,7 +2264,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_liquid_network(network, serializer);
           sse_encode_opt_String(breezApiKey, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 74)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 75)!;
         },
         codec: SseCodec(decodeSuccessData: sse_decode_config, decodeErrorData: sse_decode_sdk_error),
         constMeta: kCrateSdkDefaultConfigConstMeta,
@@ -2259,7 +2284,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         callFfi: () {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_String(input, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 75)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 76)!;
         },
         codec: SseCodec(decodeSuccessData: sse_decode_ln_invoice, decodeErrorData: sse_decode_payment_error),
         constMeta: kCrateSdkParseInvoiceConstMeta,
@@ -3888,6 +3913,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         return NwcError_ConnectionNotFound();
       case 12:
         return NwcError_ConnectionExists();
+      case 13:
+        return NwcError_PaymentInProgress();
       default:
         throw Exception("unreachable");
     }
@@ -4173,6 +4200,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           claimTxId: dco_decode_opt_String(raw[12]),
           refundTxId: dco_decode_opt_String(raw[13]),
           refundTxAmountSat: dco_decode_opt_box_autoadd_u_64(raw[14]),
+          settledAt: dco_decode_opt_box_autoadd_u_32(raw[15]),
         );
       case 1:
         return PaymentDetails_Liquid(
@@ -6646,6 +6674,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         return NwcError_ConnectionNotFound();
       case 12:
         return NwcError_ConnectionExists();
+      case 13:
+        return NwcError_PaymentInProgress();
       default:
         throw UnimplementedError('');
     }
@@ -7078,6 +7108,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         var var_claimTxId = sse_decode_opt_String(deserializer);
         var var_refundTxId = sse_decode_opt_String(deserializer);
         var var_refundTxAmountSat = sse_decode_opt_box_autoadd_u_64(deserializer);
+        var var_settledAt = sse_decode_opt_box_autoadd_u_32(deserializer);
         return PaymentDetails_Lightning(
           swapId: var_swapId,
           description: var_description,
@@ -7093,6 +7124,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
           claimTxId: var_claimTxId,
           refundTxId: var_refundTxId,
           refundTxAmountSat: var_refundTxAmountSat,
+          settledAt: var_settledAt,
         );
       case 1:
         var var_destination = sse_decode_String(deserializer);
@@ -9377,6 +9409,8 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         sse_encode_i_32(11, serializer);
       case NwcError_ConnectionExists():
         sse_encode_i_32(12, serializer);
+      case NwcError_PaymentInProgress():
+        sse_encode_i_32(13, serializer);
     }
   }
 
@@ -9765,6 +9799,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         claimTxId: final claimTxId,
         refundTxId: final refundTxId,
         refundTxAmountSat: final refundTxAmountSat,
+        settledAt: final settledAt,
       ):
         sse_encode_i_32(0, serializer);
         sse_encode_String(swapId, serializer);
@@ -9781,6 +9816,7 @@ class FlutterBreezLiquidApiImpl extends FlutterBreezLiquidApiImplPlatform implem
         sse_encode_opt_String(claimTxId, serializer);
         sse_encode_opt_String(refundTxId, serializer);
         sse_encode_opt_box_autoadd_u_64(refundTxAmountSat, serializer);
+        sse_encode_opt_box_autoadd_u_32(settledAt, serializer);
       case PaymentDetails_Liquid(
         destination: final destination,
         description: final description,
@@ -10584,6 +10620,8 @@ class PluginSdkImpl extends RustOpaque implements PluginSdk {
 
   Future<SendPaymentResponse> sendPayment({required SendPaymentRequest req}) =>
       FlutterBreezLiquid.instance.api.cratePluginPluginSdkSendPayment(that: this, req: req);
+
+  Future<void> sync_() => FlutterBreezLiquid.instance.api.cratePluginPluginSdkSync(that: this);
 }
 
 @sealed

@@ -700,8 +700,8 @@ dependencies = [
 
 [[package]]
 name = "breez-sdk-liquid"
-version = "0.11.7"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=96a9815bf8e744f8d4c9108741078a48ebd2a596#96a9815bf8e744f8d4c9108741078a48ebd2a596"
+version = "0.12.2"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=94e1e184ca9a0a0cfaa0a61a04d5c28cad45e991#94e1e184ca9a0a0cfaa0a61a04d5c28cad45e991"
 dependencies = [
  "aes",
  "aes-gcm",
@@ -760,7 +760,7 @@ dependencies = [
 [[package]]
 name = "breez-sdk-liquid-nwc"
 version = "0.0.1"
-source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=96a9815bf8e744f8d4c9108741078a48ebd2a596#96a9815bf8e744f8d4c9108741078a48ebd2a596"
+source = "git+https://github.com/breez/breez-sdk-liquid.git?rev=94e1e184ca9a0a0cfaa0a61a04d5c28cad45e991#94e1e184ca9a0a0cfaa0a61a04d5c28cad45e991"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1624,7 +1624,7 @@ dependencies = [
 
 [[package]]
 name = "flutter_breez_liquid"
-version = "0.11.7"
+version = "0.12.2"
 dependencies = [
  "anyhow",
  "async-trait",

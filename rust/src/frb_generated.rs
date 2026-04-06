@@ -43,7 +43,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.11.1";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 677657473;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = -1299239191;
 
 // Section: executor
 
@@ -3519,6 +3519,61 @@ fn wire__crate__plugin__PluginSdk_send_payment_impl(
         },
     )
 }
+fn wire__crate__plugin__PluginSdk_sync_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_async::<flutter_rust_bridge::for_generated::SseCodec, _, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "PluginSdk_sync",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<
+                flutter_rust_bridge::for_generated::RustAutoOpaqueInner<PluginSdk>,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            move |context| async move {
+                transform_result_sse::<_, crate::errors::SdkError>(
+                    (move || async move {
+                        let mut api_that_guard = None;
+                        let decode_indices_ =
+                            flutter_rust_bridge::for_generated::lockable_compute_decode_order(
+                                vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(
+                                    &api_that, 0, false,
+                                )],
+                            );
+                        for i in decode_indices_ {
+                            match i {
+                                0 => {
+                                    api_that_guard =
+                                        Some(api_that.lockable_decode_async_ref().await)
+                                }
+                                _ => unreachable!(),
+                            }
+                        }
+                        let api_that_guard = api_that_guard.unwrap();
+                        let output_ok = crate::plugin::PluginSdk::sync(&*api_that_guard).await?;
+                        Ok(output_ok)
+                    })()
+                    .await,
+                )
+            }
+        },
+    )
+}
 fn wire__crate__plugin__PluginStorage_get_item_impl(
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
     rust_vec_len_: i32,
@@ -4366,6 +4421,7 @@ const _: fn() = || {
         crate::errors::NwcError::MaxBudgetExceeded => {}
         crate::errors::NwcError::ConnectionNotFound => {}
         crate::errors::NwcError::ConnectionExists => {}
+        crate::errors::NwcError::PaymentInProgress => {}
     }
     {
         let NwcEvent = None::<crate::nwc::event::NwcEvent>.unwrap();
@@ -4456,6 +4512,7 @@ const _: fn() = || {
             claim_tx_id,
             refund_tx_id,
             refund_tx_amount_sat,
+            settled_at,
         } => {
             let _: String = swap_id;
             let _: String = description;
@@ -4471,6 +4528,7 @@ const _: fn() = || {
             let _: Option<String> = claim_tx_id;
             let _: Option<String> = refund_tx_id;
             let _: Option<u64> = refund_tx_amount_sat;
+            let _: Option<u32> = settled_at;
         }
         crate::models::PaymentDetails::Liquid {
             destination,
@@ -6575,6 +6633,9 @@ impl SseDecode for crate::errors::NwcError {
             12 => {
                 return crate::errors::NwcError::ConnectionExists;
             }
+            13 => {
+                return crate::errors::NwcError::PaymentInProgress;
+            }
             _ => {
                 unimplemented!("");
             }
@@ -7057,6 +7118,7 @@ impl SseDecode for crate::models::PaymentDetails {
                 let mut var_claimTxId = <Option<String>>::sse_decode(deserializer);
                 let mut var_refundTxId = <Option<String>>::sse_decode(deserializer);
                 let mut var_refundTxAmountSat = <Option<u64>>::sse_decode(deserializer);
+                let mut var_settledAt = <Option<u32>>::sse_decode(deserializer);
                 return crate::models::PaymentDetails::Lightning {
                     swap_id: var_swapId,
                     description: var_description,
@@ -7072,6 +7134,7 @@ impl SseDecode for crate::models::PaymentDetails {
                     claim_tx_id: var_claimTxId,
                     refund_tx_id: var_refundTxId,
                     refund_tx_amount_sat: var_refundTxAmountSat,
+                    settled_at: var_settledAt,
                 };
             }
             1 => {
@@ -8218,20 +8281,21 @@ fn pde_ffi_dispatcher_primary_impl(
             wire__crate__plugin__PluginSdk_receive_payment_impl(port, ptr, rust_vec_len, data_len)
         }
         61 => wire__crate__plugin__PluginSdk_send_payment_impl(port, ptr, rust_vec_len, data_len),
-        70 => wire__crate__events__breez_event_listener_on_event_impl(
+        62 => wire__crate__plugin__PluginSdk_sync_impl(port, ptr, rust_vec_len, data_len),
+        71 => wire__crate__events__breez_event_listener_on_event_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        71 => wire__crate__logger__breez_log_stream_impl(port, ptr, rust_vec_len, data_len),
-        72 => wire__crate__nwc__event__breez_nwc_event_listener_on_event_impl(
+        72 => wire__crate__logger__breez_log_stream_impl(port, ptr, rust_vec_len, data_len),
+        73 => wire__crate__nwc__event__breez_nwc_event_listener_on_event_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        73 => wire__crate__sdk__connect_impl(port, ptr, rust_vec_len, data_len),
+        74 => wire__crate__sdk__connect_impl(port, ptr, rust_vec_len, data_len),
         _ => unreachable!(),
     }
 }
@@ -8250,11 +8314,11 @@ fn pde_ffi_dispatcher_sync_impl(
         22 => wire__crate__sdk__BreezSdkLiquid_empty_wallet_cache_impl(ptr, rust_vec_len, data_len),
         48 => wire__crate__sdk__BreezSdkLiquid_restore_impl(ptr, rust_vec_len, data_len),
         50 => wire__crate__sdk__BreezSdkLiquid_sign_message_impl(ptr, rust_vec_len, data_len),
-        62 => wire__crate__plugin__PluginStorage_get_item_impl(ptr, rust_vec_len, data_len),
-        63 => wire__crate__plugin__PluginStorage_remove_item_impl(ptr, rust_vec_len, data_len),
-        64 => wire__crate__plugin__PluginStorage_set_item_impl(ptr, rust_vec_len, data_len),
-        74 => wire__crate__sdk__default_config_impl(ptr, rust_vec_len, data_len),
-        75 => wire__crate__sdk__parse_invoice_impl(ptr, rust_vec_len, data_len),
+        63 => wire__crate__plugin__PluginStorage_get_item_impl(ptr, rust_vec_len, data_len),
+        64 => wire__crate__plugin__PluginStorage_remove_item_impl(ptr, rust_vec_len, data_len),
+        65 => wire__crate__plugin__PluginStorage_set_item_impl(ptr, rust_vec_len, data_len),
+        75 => wire__crate__sdk__default_config_impl(ptr, rust_vec_len, data_len),
+        76 => wire__crate__sdk__parse_invoice_impl(ptr, rust_vec_len, data_len),
         _ => unreachable!(),
     }
 }
@@ -10044,6 +10108,7 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::errors::NwcError> {
             crate::errors::NwcError::MaxBudgetExceeded => [10.into_dart()].into_dart(),
             crate::errors::NwcError::ConnectionNotFound => [11.into_dart()].into_dart(),
             crate::errors::NwcError::ConnectionExists => [12.into_dart()].into_dart(),
+            crate::errors::NwcError::PaymentInProgress => [13.into_dart()].into_dart(),
             _ => {
                 unimplemented!("");
             }
@@ -10260,6 +10325,7 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::models::PaymentDetails>
                 claim_tx_id,
                 refund_tx_id,
                 refund_tx_amount_sat,
+                settled_at,
             } => [
                 0.into_dart(),
                 swap_id.into_into_dart().into_dart(),
@@ -10276,6 +10342,7 @@ impl flutter_rust_bridge::IntoDart for FrbWrapper<crate::models::PaymentDetails>
                 claim_tx_id.into_into_dart().into_dart(),
                 refund_tx_id.into_into_dart().into_dart(),
                 refund_tx_amount_sat.into_into_dart().into_dart(),
+                settled_at.into_into_dart().into_dart(),
             ]
             .into_dart(),
             crate::models::PaymentDetails::Liquid {
@@ -12741,6 +12808,9 @@ impl SseEncode for crate::errors::NwcError {
             crate::errors::NwcError::ConnectionExists => {
                 <i32>::sse_encode(12, serializer);
             }
+            crate::errors::NwcError::PaymentInProgress => {
+                <i32>::sse_encode(13, serializer);
+            }
             _ => {
                 unimplemented!("");
             }
@@ -13151,6 +13221,7 @@ impl SseEncode for crate::models::PaymentDetails {
                 claim_tx_id,
                 refund_tx_id,
                 refund_tx_amount_sat,
+                settled_at,
             } => {
                 <i32>::sse_encode(0, serializer);
                 <String>::sse_encode(swap_id, serializer);
@@ -13167,6 +13238,7 @@ impl SseEncode for crate::models::PaymentDetails {
                 <Option<String>>::sse_encode(claim_tx_id, serializer);
                 <Option<String>>::sse_encode(refund_tx_id, serializer);
                 <Option<u64>>::sse_encode(refund_tx_amount_sat, serializer);
+                <Option<u32>>::sse_encode(settled_at, serializer);
             }
             crate::models::PaymentDetails::Liquid {
                 destination,
